@@ -17,3 +17,37 @@ var gridStore = new Ext.data.Store({
 	},
 	fields : [ 'id', 'customer', 'type', 'quantity', 'price' ]
 });
+
+var customerStore = new Ext.data.Store({
+	autoLoad : true,
+	proxy : {
+		type : 'ajax',
+		url : contextPath + '/controller/sell/getCustomer.do',
+		reader : {
+			type : 'json',
+			root : 'data'
+		}
+	},
+	fields : [ 'name' ]
+});
+
+var typeStore = new Ext.data.ArrayStore({
+	autoload : true,
+	data : [ {
+		vf : "",
+		df : "全部"
+	}, {
+		vf : "0",
+		df : "进货"
+	}, {
+		vf : "1",
+		df : "出货"
+	} ],
+	fields : [ {
+		name : 'vf',
+		mapping : 'vf'
+	}, {
+		name : 'df',
+		mapping : 'df'
+	} ]
+});

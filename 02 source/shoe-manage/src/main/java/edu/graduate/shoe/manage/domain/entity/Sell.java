@@ -15,7 +15,7 @@ import edu.graduate.shoe.manage.basic.database.EntityTemplate;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "shell")
+@Table(name = "sell")
 public class Sell extends EntityTemplate {
 
 	/**

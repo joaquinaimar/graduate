@@ -1,5 +1,7 @@
 package edu.graduate.shoe.manage.application.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +15,7 @@ import edu.graduate.shoe.manage.basic.io.PageResponse;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtPageRequest;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtPageResponse;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtResponse;
+import edu.graduate.shoe.manage.domain.entity.Customer;
 import edu.graduate.shoe.manage.domain.entity.Sell;
 
 @Controller
@@ -47,6 +50,13 @@ public class SellController {
 		int result = sellService.deleteSell(ids);
 		String message = "删除" + result + "条";
 		return new ExtResponse<Object>(true, message);
+	}
+
+	@RequestMapping(value = "/getCustomer.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ExtResponse<List<Customer>> getCustomer() {
+		List<Customer> customerList = sellService.getCustomer();
+		return new ExtResponse<List<Customer>>(true, customerList);
 	}
 
 }

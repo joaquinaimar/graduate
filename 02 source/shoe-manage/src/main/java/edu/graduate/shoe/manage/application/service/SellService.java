@@ -1,5 +1,7 @@
 package edu.graduate.shoe.manage.application.service;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import edu.graduate.shoe.manage.basic.database.BaseDao;
 import edu.graduate.shoe.manage.basic.io.PageResponse;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtPageRequest;
+import edu.graduate.shoe.manage.domain.entity.Customer;
 import edu.graduate.shoe.manage.domain.entity.Sell;
 
 @Service
@@ -39,6 +42,12 @@ public class SellService extends BaseDao {
 		Query query = super.createQuery("DELETE FROM Sell WHERE id IN :ids");
 		query.setParameterList("ids", ids);
 		return query.executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Customer> getCustomer() {
+		Criteria criteria = super.createCriteria(Customer.class);
+		return criteria.list();
 	}
 
 }

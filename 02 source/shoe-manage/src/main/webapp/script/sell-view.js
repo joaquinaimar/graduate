@@ -45,6 +45,19 @@ shoe.sell.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 			fieldLabel : '客户名',
 			id : 'customer',
 			name : 'customer'
+		}, {
+			xtype : 'combobox',
+			editable : false,
+			labelWidth : 50,
+			fieldLabel : '类型',
+			id : 'type',
+			name : 'type',
+			emptyText : '请选择',
+			queryMode : 'local',
+			triggerAction : 'all',
+			store : typeStore,
+			valueField : 'vf',
+			displayField : 'df'
 		} ]
 	} ],
 	buttons : [ {
@@ -92,21 +105,27 @@ shoe.sell.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		header : 'NO.',
 		width : 50
 	}), {
-		text : "客户名",
+		text : "客户",
 		width : 200,
-		dataIndex : 'name'
+		dataIndex : 'customer'
 	}, {
-		text : "客户编号",
+		text : "类型",
 		width : 180,
-		dataIndex : 'no'
+		dataIndex : 'type',
+		renderer : function(value, metaData, record) {
+			if ("0" == value)
+				return "进货";
+			else if ("1" == value)
+				return "出货";
+		}
 	}, {
-		text : "年龄",
+		text : "数量",
 		width : 100,
-		dataIndex : 'age'
+		dataIndex : 'quantity'
 	}, {
-		text : "所在地",
-		width : '500',
-		dataIndex : 'location'
+		text : "单价",
+		width : 100,
+		dataIndex : 'price'
 	} ],
 	listeners : {
 		itemdblclick : function(view, record, item, index, e, eOpts) {
@@ -127,11 +146,11 @@ shoe.sell.ChildWindow = Ext.extend(Ext.Window, {
 	id : 'childWindow',
 	autoScroll : true,
 	width : 350,
-	height : 225,
+	height : 180,
 	minWidth : 350,
-	minHeight : 225,
+	minHeight : 180,
 	maxWidth : 350,
-	maxHeight : 225,
+	maxHeight : 180,
 	maximizable : false,
 	modal : true,
 	items : [ {
@@ -147,25 +166,39 @@ shoe.sell.ChildWindow = Ext.extend(Ext.Window, {
 			id : 'childId',
 			name : 'id'
 		}, {
-			fieldLabel : '客户名',
-			xtype : 'textfield',
-			id : 'childName',
-			name : 'name'
+			fieldLabel : '客户',
+			xtype : 'combobox',
+			editable : false,
+			id : 'childCustomer',
+			name : 'customer',
+			emptyText : '请选择',
+			queryMode : 'local',
+			triggerAction : 'all',
+			store : customerStore,
+			valueField : 'name',
+			displayField : 'name'
 		}, {
-			fieldLabel : '客户编号',
-			xtype : 'textfield',
-			id : 'childNo',
-			name : 'no'
+			xtype : 'combobox',
+			editable : false,
+			fieldLabel : '类型',
+			id : 'childType',
+			name : 'type',
+			emptyText : '请选择',
+			queryMode : 'local',
+			triggerAction : 'all',
+			store : typeStore,
+			valueField : 'vf',
+			displayField : 'df'
 		}, {
-			fieldLabel : '年龄',
+			fieldLabel : '数量',
 			xtype : 'textfield',
-			id : 'childAge',
-			name : 'age'
+			id : 'childQuantity',
+			name : 'quantity'
 		}, {
-			fieldLabel : '所在地',
-			xtype : 'textarea',
-			id : 'childLocation',
-			name : 'location'
+			fieldLabel : '单价',
+			xtype : 'textfield',
+			id : 'childPrice',
+			name : 'price'
 		} ]
 	} ],
 	buttons : [ {

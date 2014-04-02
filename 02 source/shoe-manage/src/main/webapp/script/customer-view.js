@@ -105,7 +105,7 @@ shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		dataIndex : 'age'
 	}, {
 		text : "所在地",
-		width : '500',
+		width : 500,
 		dataIndex : 'location'
 	} ],
 	listeners : {
