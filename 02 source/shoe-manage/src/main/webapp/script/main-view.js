@@ -46,9 +46,9 @@ shoe.main.MainPanel = Ext.extend(Ext.Panel, {
 					changePage("/sell");
 				}
 			}, {
-				text : '信息统计',
+				text : '轮胎信息统计',
 				onClick : function() {
-					changePage("/info");
+					changePage("/shoe");
 				}
 			}, {
 				text : '购买信息',

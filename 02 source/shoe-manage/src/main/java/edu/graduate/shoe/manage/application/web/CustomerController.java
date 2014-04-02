@@ -1,7 +1,5 @@
 package edu.graduate.shoe.manage.application.web;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -46,8 +44,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/deleteCustomer.do", method = RequestMethod.POST)
 	@ResponseBody
-	public ExtResponse<Object> deleteCustomer(HttpServletRequest request,
-			@RequestParam String[] ids) {
+	public ExtResponse<Object> deleteCustomer(@RequestParam String[] ids) {
 		int result = customerService.deleteCustomer(ids);
 		String message = "删除" + result + "条";
 		return new ExtResponse<Object>(true, message);

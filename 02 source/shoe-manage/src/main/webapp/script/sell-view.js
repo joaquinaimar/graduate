@@ -1,8 +1,8 @@
-Ext.ns("shoe.customer");
+Ext.ns("shoe.sell");
 
 Ext.onReady(function() {
 	Ext.QuickTips.init();
-	var mainPanel = new shoe.customer.MainPanel();
+	var mainPanel = new shoe.sell.MainPanel();
 
 	new Ext.Viewport({
 		layout : 'fit',
@@ -11,23 +11,23 @@ Ext.onReady(function() {
 
 });
 
-shoe.customer.MainPanel = Ext.extend(Ext.Panel, {
+shoe.sell.MainPanel = Ext.extend(Ext.Panel, {
 	id : 'mainPanel',
 	layout : 'border',
-	title : '客户管理',
+	title : '销售记录',
 	constructor : function(config) {
-		var searchPanel = new shoe.customer.SearchPanel();
-		var gridPanel = new shoe.customer.GridPanel();
+		var searchPanel = new shoe.sell.SearchPanel();
+		var gridPanel = new shoe.sell.GridPanel();
 
 		var group = {
 			items : [ searchPanel, gridPanel ]
 		};
 
-		shoe.customer.MainPanel.superclass.constructor.call(this, group);
+		shoe.sell.MainPanel.superclass.constructor.call(this, group);
 	}
 });
 
-shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
+shoe.sell.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 	id : 'searchPanel',
 	region : 'north',
 	buttonAlign : 'left',
@@ -43,25 +43,25 @@ shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 			xtype : 'textfield',
 			labelWidth : 50,
 			fieldLabel : '客户名',
-			id : 'name',
-			name : 'name'
+			id : 'customer',
+			name : 'customer'
 		} ]
 	} ],
 	buttons : [ {
 		text : '查询',
 		handler : function() {
-			searchCustomer();
+			searchSell();
 		}
 	}, {
 		text : '重置',
 		handler : function() {
 			Ext.getCmp("searchPanel").getForm().reset();
-			searchCustomer();
+			searchSell();
 		}
 	}, {
 		text : '新增',
 		handler : function() {
-			var win = new shoe.customer.ChildWindow({
+			var win = new shoe.sell.ChildWindow({
 				title : '新增画面'
 			});
 			win.show();
@@ -70,12 +70,12 @@ shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 	}, {
 		text : '删除',
 		handler : function() {
-			deleteCustomer();
+			deleteSell();
 		}
 	} ]
 });
 
-shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
+shoe.sell.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	id : 'gridPanel',
 	region : 'center',
 	frame : true,
@@ -110,7 +110,7 @@ shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	} ],
 	listeners : {
 		itemdblclick : function(view, record, item, index, e, eOpts) {
-			var win = new shoe.customer.ChildWindow({
+			var win = new shoe.sell.ChildWindow({
 				title : '更新画面'
 			});
 			win.show();
@@ -123,7 +123,7 @@ shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	}
 });
 
-shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
+shoe.sell.ChildWindow = Ext.extend(Ext.Window, {
 	id : 'childWindow',
 	autoScroll : true,
 	width : 350,
@@ -171,7 +171,7 @@ shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
 	buttons : [ {
 		text : '保存',
 		handler : function() {
-			saveCustomer();
+			saveSell();
 		}
 	}, {
 		text : '关闭',

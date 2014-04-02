@@ -36,8 +36,8 @@ public class CustomerService extends BaseDao {
 
 	public int deleteCustomer(String[] ids) {
 		Query query = super
-				.createQuery("DELETE FROM Customer WHERE id IN :pkIds");
-		query.setParameterList("pkIds", ids);
+				.createQuery("DELETE FROM Customer WHERE id IN :ids");
+		query.setParameterList("ids", ids);
 		return query.executeUpdate();
 	}
 

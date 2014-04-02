@@ -91,7 +91,7 @@
 	<mvc:view-controller path="/main" />
 	<mvc:view-controller path="/customer" />
 	<mvc:view-controller path="/sell" />
-	<mvc:view-controller path="/info" />
+	<mvc:view-controller path="/shoe" />
 	<mvc:view-controller path="/purchase" />
 	<mvc:view-controller path="/service" />
 

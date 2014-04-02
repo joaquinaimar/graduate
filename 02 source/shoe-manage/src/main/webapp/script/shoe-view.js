@@ -1,8 +1,8 @@
-Ext.ns("shoe.customer");
+Ext.ns("shoe.shoe");
 
 Ext.onReady(function() {
 	Ext.QuickTips.init();
-	var mainPanel = new shoe.customer.MainPanel();
+	var mainPanel = new shoe.shoe.MainPanel();
 
 	new Ext.Viewport({
 		layout : 'fit',
@@ -11,23 +11,23 @@ Ext.onReady(function() {
 
 });
 
-shoe.customer.MainPanel = Ext.extend(Ext.Panel, {
+shoe.shoe.MainPanel = Ext.extend(Ext.Panel, {
 	id : 'mainPanel',
 	layout : 'border',
-	title : '客户管理',
+	title : '轮胎信息统计',
 	constructor : function(config) {
-		var searchPanel = new shoe.customer.SearchPanel();
-		var gridPanel = new shoe.customer.GridPanel();
+		var searchPanel = new shoe.shoe.SearchPanel();
+		var gridPanel = new shoe.shoe.GridPanel();
 
 		var group = {
 			items : [ searchPanel, gridPanel ]
 		};
 
-		shoe.customer.MainPanel.superclass.constructor.call(this, group);
+		shoe.shoe.MainPanel.superclass.constructor.call(this, group);
 	}
 });
 
-shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
+shoe.shoe.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 	id : 'searchPanel',
 	region : 'north',
 	buttonAlign : 'left',
@@ -42,26 +42,32 @@ shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 		items : [ {
 			xtype : 'textfield',
 			labelWidth : 50,
-			fieldLabel : '客户名',
-			id : 'name',
-			name : 'name'
+			fieldLabel : '型号',
+			id : 'model',
+			name : 'model'
+		}, {
+			xtype : 'textfield',
+			labelWidth : 50,
+			fieldLabel : '品牌',
+			id : 'brand',
+			name : 'brand'
 		} ]
 	} ],
 	buttons : [ {
 		text : '查询',
 		handler : function() {
-			searchCustomer();
+			searchShoe();
 		}
 	}, {
 		text : '重置',
 		handler : function() {
 			Ext.getCmp("searchPanel").getForm().reset();
-			searchCustomer();
+			searchShoe();
 		}
 	}, {
 		text : '新增',
 		handler : function() {
-			var win = new shoe.customer.ChildWindow({
+			var win = new shoe.shoe.ChildWindow({
 				title : '新增画面'
 			});
 			win.show();
@@ -70,12 +76,12 @@ shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 	}, {
 		text : '删除',
 		handler : function() {
-			deleteCustomer();
+			deleteShoe();
 		}
 	} ]
 });
 
-shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
+shoe.shoe.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	id : 'gridPanel',
 	region : 'center',
 	frame : true,
@@ -92,25 +98,33 @@ shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		header : 'NO.',
 		width : 50
 	}), {
-		text : "客户名",
-		width : 200,
-		dataIndex : 'name'
-	}, {
-		text : "客户编号",
-		width : 180,
-		dataIndex : 'no'
-	}, {
-		text : "年龄",
+		text : "型号",
 		width : 100,
-		dataIndex : 'age'
+		dataIndex : 'model'
 	}, {
-		text : "所在地",
-		width : '500',
-		dataIndex : 'location'
+		text : "品牌",
+		width : 100,
+		dataIndex : 'brand'
+	}, {
+		text : "进价",
+		width : 100,
+		dataIndex : 'bid'
+	}, {
+		text : "售价",
+		width : 100,
+		dataIndex : 'price'
+	}, {
+		text : "数量",
+		width : 100,
+		dataIndex : 'repertory'
+	}, {
+		text : "类型",
+		width : 100,
+		dataIndex : 'type'
 	} ],
 	listeners : {
 		itemdblclick : function(view, record, item, index, e, eOpts) {
-			var win = new shoe.customer.ChildWindow({
+			var win = new shoe.shoe.ChildWindow({
 				title : '更新画面'
 			});
 			win.show();
@@ -123,15 +137,15 @@ shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	}
 });
 
-shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
+shoe.shoe.ChildWindow = Ext.extend(Ext.Window, {
 	id : 'childWindow',
 	autoScroll : true,
 	width : 350,
-	height : 225,
+	height : 235,
 	minWidth : 350,
-	minHeight : 225,
+	minHeight : 235,
 	maxWidth : 350,
-	maxHeight : 225,
+	maxHeight : 235,
 	maximizable : false,
 	modal : true,
 	items : [ {
@@ -147,31 +161,41 @@ shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
 			id : 'childId',
 			name : 'id'
 		}, {
-			fieldLabel : '客户名',
+			fieldLabel : '型号',
 			xtype : 'textfield',
-			id : 'childName',
-			name : 'name'
+			id : 'childModel',
+			name : 'model'
 		}, {
-			fieldLabel : '客户编号',
+			fieldLabel : '品牌',
 			xtype : 'textfield',
-			id : 'childNo',
-			name : 'no'
+			id : 'childBrand',
+			name : 'brand'
 		}, {
-			fieldLabel : '年龄',
+			fieldLabel : '进价',
 			xtype : 'textfield',
-			id : 'childAge',
-			name : 'age'
+			id : 'childBid',
+			name : 'bid'
 		}, {
-			fieldLabel : '所在地',
-			xtype : 'textarea',
-			id : 'childLocation',
-			name : 'location'
-		} ]
+			fieldLabel : '售价',
+			xtype : 'textfield',
+			id : 'childPrice',
+			name : 'price'
+		}, {
+			fieldLabel : '数量',
+			xtype : 'textfield',
+			id : 'childRepertory',
+			name : 'repertory'
+		}, {
+			fieldLabel : '类型',
+			xtype : 'textfield',
+			id : 'childType',
+			name : 'type'
+ 		} ]
 	} ],
 	buttons : [ {
 		text : '保存',
 		handler : function() {
-			saveCustomer();
+			saveShoe();
 		}
 	}, {
 		text : '关闭',
