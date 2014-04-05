@@ -51,14 +51,9 @@ shoe.main.MainPanel = Ext.extend(Ext.Panel, {
 					changePage("/shoe");
 				}
 			}, {
-				text : '购买信息',
-				onClick : function() {
-					changePage("/purchase");
-				}
-			}, {
 				text : '售后管理',
 				onClick : function() {
-					changePage("/service");
+					changePage("/afterService");
 				}
 			}]
 		}]

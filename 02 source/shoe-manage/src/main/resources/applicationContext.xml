@@ -92,8 +92,7 @@
 	<mvc:view-controller path="/customer" />
 	<mvc:view-controller path="/sell" />
 	<mvc:view-controller path="/shoe" />
-	<mvc:view-controller path="/purchase" />
-	<mvc:view-controller path="/service" />
+	<mvc:view-controller path="/afterService" />
 
 	<context:property-placeholder location="classpath:jdbc.properties" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

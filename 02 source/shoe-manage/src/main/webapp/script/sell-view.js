@@ -136,7 +136,8 @@ shoe.sell.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 			var form = Ext.getCmp("childForm").getForm();
 			form.reset();
 			for ( var p in record.data) {
-				form.findField(p).setValue(record.get(p));
+				if (form.findField(p))
+					form.findField(p).setValue(record.get(p));
 			}
 		}
 	}

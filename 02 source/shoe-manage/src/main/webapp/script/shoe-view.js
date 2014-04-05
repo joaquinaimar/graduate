@@ -131,7 +131,8 @@ shoe.shoe.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 			var form = Ext.getCmp("childForm").getForm();
 			form.reset();
 			for ( var p in record.data) {
-				form.findField(p).setValue(record.get(p));
+				if (form.findField(p))
+					form.findField(p).setValue(record.get(p));
 			}
 		}
 	}
@@ -190,7 +191,7 @@ shoe.shoe.ChildWindow = Ext.extend(Ext.Window, {
 			xtype : 'textfield',
 			id : 'childType',
 			name : 'type'
- 		} ]
+		} ]
 	} ],
 	buttons : [ {
 		text : '保存',
