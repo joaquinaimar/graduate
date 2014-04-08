@@ -26,20 +26,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:fadingEdge="vertical"
-            android:scrollbars="vertical" >
-
-            <LinearLayout
-                android:id="@+id/listResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="10dp" >
-            </LinearLayout>
-        </ScrollView>
+        <ListView
+            android:id="@+id/listResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" >
+        </ListView>
     </TableRow>
 
 </TableLayout>

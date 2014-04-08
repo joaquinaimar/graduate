@@ -1,12 +1,15 @@
 package edu.graduate.biteOfTianJin.application.activity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.SimpleAdapter;
 import edu.graduate.biteOfTianJin.R;
 import edu.graduate.biteOfTianJin.application.listener.SearchViewQueryTextListener;
 import edu.graduate.biteOfTianJin.basic.ExitApplication;
@@ -15,7 +18,7 @@ public class MainActivity extends Activity {
 
 	private SearchView searchView = null;
 
-	private LinearLayout funListView = null;
+	private ListView funListView = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +30,10 @@ public class MainActivity extends Activity {
 				.setOnQueryTextListener(new SearchViewQueryTextListener(this));
 		searchView.setSubmitButtonEnabled(false);
 
-		funListView = (LinearLayout) findViewById(R.id.listResult);
-		initGridView();
+		funListView = (ListView) findViewById(R.id.listResult);
+
+		getResultList();
+
 	}
 
 	@Override
@@ -47,16 +52,21 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void initGridView() {
-		int ii = 1008601;
-		for (int i = 1; i <= 19; i++) {
-			Button btn = new Button(this);
-			btn.setWidth(500);
-			btn.setText(String.valueOf(ii));
-			btn.setId(ii++);
-			funListView.addView(btn);
+	private void getResultList() {
+
+		ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
+		for (int i = 0; i < 10; i++) {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("listContent", i + "");
+			map.put("listButton", "È·¶¨");
+			listItem.add(map);
 		}
 
-	}
+		SimpleAdapter listItemAdapter = new SimpleAdapter(this, listItem,
+				R.layout.result_listview, new String[] { "listContent",
+						"listButton" }, new int[] { R.id.listContent,
+						R.id.listButton });
+		funListView.setAdapter(listItemAdapter);
 
+	}
 }
