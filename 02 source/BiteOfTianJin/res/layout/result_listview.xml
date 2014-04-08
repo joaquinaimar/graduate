@@ -6,20 +6,31 @@
     android:paddingLeft="12dip"
     android:paddingRight="12dip" >
 
-    <TextView
-        android:id="@+id/listContent"
-        android:layout_width="100dip"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/listButton"
+    <ImageView
+        android:id="@+id/imageViewTitle"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/listButton" />
+        android:src="@drawable/ic_launcher" />
 
-    <Button
-        android:id="@+id/listButton"
+    <TextView
+        android:id="@+id/textViewContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewTitle"
+        android:layout_alignLeft="@+id/textViewTitle"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textViewTitle"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageViewTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
