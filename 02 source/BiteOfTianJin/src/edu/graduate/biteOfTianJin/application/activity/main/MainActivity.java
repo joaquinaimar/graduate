@@ -20,7 +20,7 @@ import edu.graduate.biteOfTianJin.application.activity.main.listener.ListItemCli
 import edu.graduate.biteOfTianJin.application.activity.main.listener.SearchViewQueryTextListener;
 import edu.graduate.biteOfTianJin.basic.ExitApplication;
 import edu.graduate.biteOfTianJin.basic.SqliteHelper;
-import edu.graduate.biteOfTianJin.domain.entity.Shop;
+import edu.graduate.biteOfTianJin.domain.entity.ShopEntity;
 
 public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 
@@ -28,7 +28,7 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 
 	private ListView funListView = null;
 
-	private Dao<Shop, Integer> shopDao = null;
+	private Dao<ShopEntity, Integer> shopDao = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,11 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 		funListView = (ListView) this.findViewById(R.id.listResult);
 
 		try {
-			shopDao = getHelper().getHelloDataDao();
-			Shop shop = new Shop();
+			shopDao = getHelper().getDao(ShopEntity.class);
+			shopDao.deleteBuilder().delete();
+			ShopEntity shop = new ShopEntity();
 			for (int i = 0; i < 10; i++) {
-				shop.setName("name" + i);
+				shop.setShopName("name" + i);
 				shop.setSuggest("suggest" + i);
 				shopDao.create(shop);
 			}
@@ -55,7 +56,7 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 			e.printStackTrace();
 		}
 
-		getResultList();
+		getResultList(String.valueOf(searchView.getQuery()));
 
 	}
 
@@ -75,15 +76,16 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void getResultList() {
+	public void getResultList(String text) {
 
 		ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 		try {
-			List<Shop> shops = shopDao.queryForAll();
-			for (Shop s : shops) {
+			List<ShopEntity> shops = shopDao.queryBuilder().where()
+					.like("SHOP_NAME", "%" + text + "%").query();
+			for (ShopEntity s : shops) {
 
 				HashMap<String, Object> map = new HashMap<String, Object>();
-				map.put("textViewTitle", s.getName());
+				map.put("textViewTitle", s.getShopName());
 				map.put("textViewContent", s.getSuggest());
 				listItem.add(map);
 			}
@@ -94,7 +96,8 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 							R.id.textViewTitle, R.id.textViewContent });
 			funListView.setAdapter(listItemAdapter);
 			funListView.setOnItemClickListener(new ListItemClickListener(this));
-		} catch (SQLException e) {
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}

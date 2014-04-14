@@ -11,12 +11,11 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import edu.graduate.biteOfTianJin.domain.entity.Shop;
+import edu.graduate.biteOfTianJin.domain.entity.ShopEntity;
 
 public class SqliteHelper extends OrmLiteSqliteOpenHelper {
-	private static final String DATABASE_NAME = "HelloOrmlite.db";
-	private static final int DATABASE_VERSION = 2;
-	private Dao<Shop, Integer> helloDao = null;
+	private static final String DATABASE_NAME = "BOT.db";
+	private static final int DATABASE_VERSION = 1;
 
 	public SqliteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -25,7 +24,7 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 		try {
-			TableUtils.createTable(connectionSource, Shop.class);
+			TableUtils.createTable(connectionSource, ShopEntity.class);
 		} catch (SQLException e) {
 			Log.e(SqliteHelper.class.getName(), "创建数据库失败", e);
 			e.printStackTrace();
@@ -36,7 +35,7 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,
 			int arg2, int arg3) {
 		try {
-			TableUtils.dropTable(connectionSource, Shop.class, true);
+			TableUtils.dropTable(connectionSource, ShopEntity.class, true);
 			onCreate(db, connectionSource);
 		} catch (SQLException e) {
 			Log.e(SqliteHelper.class.getName(), "更新数据库失败", e);
@@ -47,13 +46,10 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	@Override
 	public void close() {
 		super.close();
-		helloDao = null;
 	}
 
-	public Dao<Shop, Integer> getHelloDataDao() throws SQLException {
-		if (helloDao == null) {
-			helloDao = getDao(Shop.class);
-		}
-		return helloDao;
+	public <T, ID> Dao<T, ID> getDao(Class<T> t, Class<ID> id)
+			throws SQLException {
+		return getDao(t);
 	}
 }
