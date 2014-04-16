@@ -11,7 +11,9 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import edu.graduate.biteOfTianJin.domain.entity.ReviewEntity;
 import edu.graduate.biteOfTianJin.domain.entity.ShopEntity;
+import edu.graduate.biteOfTianJin.domain.entity.UserEntity;
 
 public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	private static final String DATABASE_NAME = "BOT.db";
@@ -24,7 +26,9 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 		try {
+			TableUtils.createTable(connectionSource, ReviewEntity.class);
 			TableUtils.createTable(connectionSource, ShopEntity.class);
+			TableUtils.createTable(connectionSource, UserEntity.class);
 		} catch (SQLException e) {
 			Log.e(SqliteHelper.class.getName(), "创建数据库失败", e);
 			e.printStackTrace();
@@ -35,7 +39,9 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,
 			int arg2, int arg3) {
 		try {
+			TableUtils.dropTable(connectionSource, ReviewEntity.class, true);
 			TableUtils.dropTable(connectionSource, ShopEntity.class, true);
+			TableUtils.dropTable(connectionSource, UserEntity.class, true);
 			onCreate(db, connectionSource);
 		} catch (SQLException e) {
 			Log.e(SqliteHelper.class.getName(), "更新数据库失败", e);

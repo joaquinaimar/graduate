@@ -49,6 +49,7 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 			for (int i = 0; i < 10; i++) {
 				shop.setShopName("name" + i);
 				shop.setSuggest("suggest" + i);
+				shop.setPhoneNo("212121232");
 				shopDao.create(shop);
 			}
 
@@ -62,6 +63,7 @@ public class MainActivity extends OrmLiteBaseActivity<SqliteHelper> {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
