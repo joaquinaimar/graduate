@@ -50,15 +50,17 @@ public class MainActivity extends BaseActivity {
 			for (ShopEntity s : shops) {
 
 				HashMap<String, Object> map = new HashMap<String, Object>();
+				map.put("hiddenId", s.getId());
 				map.put("textViewTitle", s.getShopName());
 				map.put("textViewContent", s.getSuggest());
 				listItem.add(map);
 			}
 
 			SimpleAdapter listItemAdapter = new SimpleAdapter(this, listItem,
-					R.layout.result_listview, new String[] { "textViewTitle",
-							"textViewContent" }, new int[] {
-							R.id.textViewTitle, R.id.textViewContent });
+					R.layout.result_listview, new String[] { "hiddenId",
+							"textViewTitle", "textViewContent" }, new int[] {
+							R.id.hiddenId, R.id.textViewTitle,
+							R.id.textViewContent });
 			funListView.setAdapter(listItemAdapter);
 			funListView.setOnItemClickListener(new ListItemClickListener(this));
 		} catch (Exception e) {

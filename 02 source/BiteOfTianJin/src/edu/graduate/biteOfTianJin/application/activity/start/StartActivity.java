@@ -55,7 +55,7 @@ public class StartActivity extends BaseActivity {
 		Dao<ShopEntity, Integer> shopDao = getHelper().getDao(ShopEntity.class);
 		shopDao.deleteBuilder().delete();
 		ShopEntity shop = null;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 10; i > 0; i--) {
 			shop = new ShopEntity();
 			shop.setShopName("name" + i);
 			shop.setSuggest("suggest" + i);
