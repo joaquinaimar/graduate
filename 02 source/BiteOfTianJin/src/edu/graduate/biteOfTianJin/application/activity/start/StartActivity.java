@@ -54,14 +54,23 @@ public class StartActivity extends BaseActivity {
 	private void initData() throws SQLException {
 		Dao<ShopEntity, Integer> shopDao = getHelper().getDao(ShopEntity.class);
 		shopDao.deleteBuilder().delete();
-		ShopEntity shop = null;
-		for (int i = 10; i > 0; i--) {
-			shop = new ShopEntity();
-			shop.setShopName("name" + i);
-			shop.setSuggest("suggest" + i);
-			shop.setPhoneNo("212121232");
-			shopDao.create(shop);
-		}
+		ShopEntity shop1 = new ShopEntity();
+		shop1.setShopName("双创包子店");
+		shop1.setSuggest("综合日本包子和天津包子的特点，都是驴馅的");
+		shop1.setType("天津菜");
+		shop1.setPhoneNo("13821159240");
+		shop1.setAveragePrice(10.0);
+		shop1.setAddress("天津后广场");
+		shopDao.create(shop1);
+
+		ShopEntity shop2 = new ShopEntity();
+		shop2.setShopName("双创火锅店");
+		shop2.setSuggest("全世界唯一一个驴肉火锅");
+		shop2.setType("川菜");
+		shop2.setPhoneNo("13821159240");
+		shop2.setAveragePrice(20.0);
+		shop2.setAddress("天津空港经济区");
+		shopDao.create(shop2);
 
 		Dao<UserEntity, Integer> userDao = getHelper().getDao(UserEntity.class);
 		userDao.deleteBuilder().delete();

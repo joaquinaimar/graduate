@@ -57,6 +57,7 @@ public class LoginActivity extends BaseActivity {
 					.query();
 
 			if (1 == userList.size()) {
+				SessionStore.userid = userList.get(0).getId();
 				SessionStore.username = userList.get(0).getUsername();
 				SessionStore.phoneNo = userList.get(0).getPhoneNo();
 				redirectTo(MainActivity.class);
