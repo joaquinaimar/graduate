@@ -25,6 +25,7 @@ public class LoginController {
 			@RequestParam String username, @RequestParam String password) {
 		User user = loginService.login(username, password);
 		if (null != user) {
+			request.getSession().setAttribute("loginId", user.getId());
 			return new ModelAndView(new RedirectView(request.getContextPath()
 					+ "/main"));
 		} else {

@@ -35,6 +35,12 @@ public class User extends EntityTemplate {
 	@Column(name = "password")
 	private String password = null;
 
+	@Column(name = "phone")
+	private String phone = null;
+
+	@Column(name = "email")
+	private String email = null;
+
 	public String getId() {
 		return id;
 	}
@@ -57,6 +63,22 @@ public class User extends EntityTemplate {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

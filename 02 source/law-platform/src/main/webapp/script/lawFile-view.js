@@ -96,7 +96,7 @@ law.lawFile.ChildWindow = Ext.extend(Ext.Window, {
 	id : 'childWindow',
 	autoScroll : true,
 	width : 500,
-	height : 92,
+	height : 110,
 	maximizable : false,
 	modal : true,
 	items : [ {
