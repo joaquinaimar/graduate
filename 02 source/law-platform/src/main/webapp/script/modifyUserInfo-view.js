@@ -22,7 +22,7 @@ law.modifyUserInfo.MainPanel = Ext.extend(Ext.Panel, {
 	items : [ {
 		id : 'userForm',
 		xtype : 'form',
-		height : 150,
+		height : 160,
 		width : 400,
 		labelWidth : 60,
 		labelAlign : 'right',

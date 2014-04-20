@@ -42,7 +42,7 @@
 	<mvc:resources mapping="/style/**" location="/style/" />
 	<mvc:resources mapping="/lib/**" location="/lib/" />
 	<mvc:resources mapping="/extjs/**"
-		location="classpath:/META-INF/resources/webjars/extjs/4.1.1a/" />
+		location="classpath:/META-INF/resources/webjars/extjs/4.2.1.883/" />
 
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />

@@ -42,7 +42,7 @@
 	<mvc:resources mapping="/style/**" location="/style/" />
 	<mvc:resources mapping="/lib/**" location="/lib/" />
 	<mvc:resources mapping="/extjs/**"
-		location="classpath:/META-INF/resources/webjars/extjs/4.1.1a/" />
+		location="classpath:/META-INF/resources/webjars/extjs/4.2.1.883/" />
 	<mvc:resources mapping="/file/**" location="/file/" />
 
 	<bean
@@ -91,7 +91,6 @@
 	<mvc:view-controller path="/" view-name="/login" />
 	<mvc:view-controller path="/main" />
 	<mvc:view-controller path="/lawyerInfo" />
-	<mvc:view-controller path="/lawyerReserve" />
 	<mvc:view-controller path="/reserveManage" />
 	<mvc:view-controller path="/lawFile" />
 	<mvc:view-controller path="/modifyUserInfo" />

@@ -8,6 +8,8 @@ Ext.onReady(function() {
 		layout : 'fit',
 		items : mainPanel
 	});
+
+	changePage("/lawyerInfo");
 });
 
 law.main.MainPanel = Ext.extend(Ext.Panel, {
@@ -38,11 +40,6 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 				text : '律师资料',
 				onClick : function() {
 					changePage("/lawyerInfo");
-				}
-			}, {
-				text : '律师预约',
-				onClick : function() {
-					changePage("/lawyerReserve");
 				}
 			}, {
 				text : '预约管理',
