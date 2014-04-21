@@ -1,0 +1,114 @@
+BODY {
+	MARGIN: 0px; BACKGROUND: url(../images/bg.gif); COLOR: #222222; FONT-SIZE: 12px
+}
+BODY {
+	MARGIN: 0px; COLOR: #222222; FONT-SIZE: 12px
+}
+TABLE {
+	MARGIN: 0px; COLOR: #222222; FONT-SIZE: 12px
+}
+TR {
+	MARGIN: 0px; COLOR: #222222; FONT-SIZE: 12px
+}
+TD {
+	MARGIN: 0px; COLOR: #222222; FONT-SIZE: 12px
+}
+P {
+	MARGIN: 0px; COLOR: #222222; FONT-SIZE: 12px
+}
+A:link {
+	COLOR: #222222; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #999999; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #222222; TEXT-DECORATION: none
+}
+.b {
+	COLOR: #ce0609; FONT-SIZE: 12px
+}
+.d {
+	COLOR: #fd8c1e; FONT-SIZE: 12px
+}
+.dh {
+	COLOR: #ffffff; FONT-SIZE: 12px
+}
+.dh:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.dh:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.dh A:hover {
+	COLOR: #ffff00; TEXT-DECORATION: underline
+}
+.dh:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.y {
+	COLOR: #ffff00; FONT-SIZE: 12px
+}
+.y:link {
+	COLOR: #ffff00; TEXT-DECORATION: none
+}
+.y:visited {
+	COLOR: #ffff00; TEXT-DECORATION: none
+}
+.y:hover {
+	COLOR: #ffff00; TEXT-DECORATION: underline
+}
+.y:active {
+	COLOR: #ffff00; TEXT-DECORATION: none
+}
+.red {
+	COLOR: #c60001; FONT-SIZE: 12px
+}
+.red:link {
+	COLOR: #c60001; TEXT-DECORATION: none
+}
+.red:visited {
+	COLOR: #c60001; TEXT-DECORATION: none
+}
+.red:hover {
+	COLOR: #c60001; TEXT-DECORATION: underline
+}
+.red:active {
+	COLOR: #c60001; TEXT-DECORATION: none
+}
+.title {
+	COLOR: #ffffff; FONT-SIZE: 12px; FONT-WEIGHT: bolder
+}
+.title1 {
+	COLOR: #fd8c1e; FONT-SIZE: 14px; FONT-WEIGHT: bolder
+}
+.title2 {
+	COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bolder
+}
+.news {
+	COLOR: #1c3086; FONT-SIZE: 12px
+}
+.news:link {
+	COLOR: #1c3086; TEXT-DECORATION: none
+}
+.news:visited {
+	COLOR: #1c3086; TEXT-DECORATION: none
+}
+.news:hover {
+	COLOR: #ce0609; TEXT-DECORATION: underline
+}
+.news:active {
+	COLOR: #1c3086; TEXT-DECORATION: none
+}
+.text {
+	LINE-HEIGHT: 20px
+}
+.text1 {
+	LINE-HEIGHT: 40px
+}
+.input {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; COLOR: #666666; FONT-SIZE: 12px; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.swust.teach.model">
+	<class name="Parent" table="t_parent">
+		<id name="user_id">
+			<generator class="native"/>	
+		</id>
+		<property name="username" not-null="true"/>
+		<property name="pwd" />
+		<property name="rote" />
+		<property name="ch_name"/>
+		<property name="email"/>
+		<property name="sex"/>
+		<property name="qq"/>
+		<property name="address"/>
+		<property name="telephone"/>
+		<property name="mobel"/>
+		<property name="registertime"/>
+
+	</class>
+</hibernate-mapping>

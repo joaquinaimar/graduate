@@ -1,0 +1,60 @@
+BODY {
+	MARGIN: 0px; FONT-SIZE: 12px
+}
+TABLE {
+	MARGIN: 0px; FONT-SIZE: 12px
+}
+TR {
+	MARGIN: 0px; FONT-SIZE: 12px
+}
+TD {
+	MARGIN: 0px; FONT-SIZE: 12px
+}
+BODY {
+	MARGIN: 0px; BACKGROUND: url(../images/bg.gif); COLOR: #222222; FONT-SIZE: 12px
+}
+A:link {
+	COLOR: #575757; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #888888; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #cc0000; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #888888; TEXT-DECORATION: none
+}
+.dh {
+	COLOR: #ffffff; FONT-SIZE: 12px
+}
+.dh:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.dh:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.dh:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.dh:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.show {
+	COLOR: #575757; FONT-SIZE: 12px
+}
+.show:link {
+	COLOR: #cc0000; TEXT-DECORATION: none
+}
+.show:visited {
+	COLOR: #cc0000; TEXT-DECORATION: none
+}
+.show:hover {
+	COLOR: #cc0000; TEXT-DECORATION: underline
+}
+.show:active {
+	COLOR: #cc0000; TEXT-DECORATION: none
+}
+.input {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; HEIGHT: 21px; COLOR: #666666; FONT-SIZE: 14px; VERTICAL-ALIGN: middle; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid; font-color: #000000
+}

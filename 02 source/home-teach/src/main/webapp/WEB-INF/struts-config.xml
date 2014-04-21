@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm"    type="com.swust.teach.forms.LoginActionForm"/>
+		<form-bean name="regprtForm"   type="com.swust.teach.forms.PrtregActionForm"/>
+		<form-bean name="regthrForm" type="com.swust.teach.forms.ThrregActionForm"/>
+		<form-bean name="stuForm"   type="com.swust.teach.forms.StuActionForm"/>
+		<!-- <form-bean name="blankForm"    type="com.swust.teach.forms.BlankActionForm"/> -->
+	</form-beans>
+	
+	<!-- 
+	<global-exceptions>
+	   <exception key="error.exception" 
+                  type="com.bjsxt.drp.business.util.AppException"
+                  handler="com.bjsxt.drp.web.util.DrpExceptionHandler"
+                  path="/WEB-INF/jsp/error.jsp"/>    
+	
+	</global-exceptions>
+	 -->
+	<global-forwards>
+		<forward name="login" path="/index.jsp"/>
+	</global-forwards>
+	
+ 	<action-mappings>
+				
+		<action path="/login"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				parameter="method"
+				name="loginForm"
+				scope="request"
+				>
+			<forward name="Manager" path="/jsp/admin/mgr.jsp"/>
+			<forward name="Parent" path="mylist.do?method=main_list" redirect="true"/>
+			<forward name="Teacher" path="mylist.do?method=main_list" redirect="true"/>
+			<forward name="quit" path="/index.jsp"/>
+			<forward name="fail" path="/jsp/fail.jsp"/>
+		</action>
+ 		
+ 		<action path="/addstu"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				parameter="method"
+				name="stuForm"
+				scope="request"
+				>
+			<forward name="sucess" path="mylist.do?method=main_list"  redirect="true"/>
+			<forward name="fail" path="/jsp/fail.jsp"/>
+		</action>
+ 		
+		<action path="/regprt"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				parameter="method"
+				name="regprtForm"
+				scope="request"
+				>
+			<forward name="sucess" path="/index.jsp"/>
+			<forward name="fail" path="/jsp/fail.jsp"/>
+			<forward name="updatesucess" path="mylist.do?method=main_list" redirect="true"/>
+		</action>
+		
+		<action path="/regthr"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				parameter="method"
+				name="regthrForm"
+				scope="request"
+				>
+			<forward name="sucess" path="/index.jsp"/>
+			<forward name="fail" path="/jsp/fail.jsp"/>
+			<forward name="updatesucess" path="mylist.do?method=main_list" redirect="true"/>
+		</action>
+		
+		<action path="/mgr"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				parameter="method"
+				scope="request"
+				>
+			<forward name="fail" path="/jsp/fail.jsp"/>
+			<forward name="stuList" path="/jsp/admin/mgrstuList.jsp"/>
+			<forward name="mgrList" path="/jsp/admin/mgrmgrList.jsp"/>
+			<forward name="prtList" path="/jsp/admin/mgrprtList.jsp"/>
+			<forward name="thrList" path="/jsp/admin/mgrthrList.jsp"/>
+			<forward name="rethrList" path="mgr.do?method=thrList" redirect="true"/>
+			<forward name="reprtList" path="mgr.do?method=prtList" redirect="true"/>
+			<forward name="restuList" path="mgr.do?method=stuList" redirect="true"/>
+			<forward name="remgrList" path="mgr.do?method=mgrList" redirect="true"/>
+			<forward name="loadthr" path="/jsp/admin/mgrthrdt.jsp"/>
+			<forward name="loadprt" path="/jsp/admin/mgrprtdt.jsp"/>
+			<forward name="loadstu" path="/jsp/admin/mgrstudt.jsp"/>
+			<forward name="updatesucess" path="mylist.do?method=main_list" redirect="true"/>	
+		</action>
+		
+		<action path="/mylist"
+				parameter="method"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="request"
+				>
+			<forward name="main_list"  path="/jsp/main/main.jsp" />
+			<forward name="loadthr"    path="/jsp/main/thrdt.jsp"/>
+			<forward name="loadstu"    path="/jsp/main/studt.jsp" />
+			<forward name="allthrList" path="/jsp/main/thrList.jsp"/>
+			<forward name="allstuList" path="/jsp/main/stuList.jsp"/>
+			<forward name="addstu"     path="/jsp/main/addstu.jsp"/>
+			<forward name="loadthr4modify"    path="/jsp/main/modifythr.jsp" />
+			<forward name="loadstu4modify"    path="/jsp/main/modifystu.jsp" />
+			<forward name="loadprt4modify"    path="/jsp/main/modifyprt.jsp" />
+		</action>
+		
+		<action path="/blank"
+				type="com.swust.teach.actions.BlankAction"
+				scope="request"
+				>
+			<forward name="main" path="mylist.do?method=main_list" redirect="true"/>
+			<forward name="regprt" path="/jsp/regprt.jsp"/>
+			<forward name="regthr" path="/jsp/regthr.jsp"/>
+			<forward name="thrList" path="mylist.do?method=allthrList"  redirect="true"/>
+			<forward name="stuList" path="mylist.do?method=allstuList"  redirect="true"/>
+			<forward name="addstu" path="/jsp/main/addstu.jsp"/>
+			<forward name="fail" path="/jsp/fail.jsp"/>
+			<forward name="modifypwd" path="/jsp/main/modifypwd.jsp"/>
+			<forward name="mgrmain" path="/jsp/admin/mgr.jsp"/>
+			<forward name="addmgr" path="/jsp/admin/mgradd.jsp"/>
+			<forward name="modifymgrpwd" path="/jsp/admin/mgrmodifypwd.jsp"/>
+			<forward name="login" path="/index.jsp"/>
+			<forward name="thrmustread" path="/jsp/mustread/mustread1.jsp"/>
+			<forward name="stumustread" path="/jsp/mustread/mustread2.jsp"/>
+		</action>
+		
+	</action-mappings>
+     <message-resources parameter="MessageResources" />
+</struts-config>

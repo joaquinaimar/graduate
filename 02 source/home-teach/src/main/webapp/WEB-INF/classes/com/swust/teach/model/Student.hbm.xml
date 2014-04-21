@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.swust.teach.model">
+	<class name="Student" table="t_student">
+		<id name="user_id">
+			<generator class="native"/>
+		</id>
+		<set name="thrs" table="t_teacher_student" >
+			<key column="stu_id"/>
+			<many-to-many class="com.swust.teach.model.Teacher" column="thr_id"/>
+		</set>
+		<property name="firname"/>
+		<property name="sex"/>
+		<property name="telephone"/>
+		<property name="mobel"/>
+		<property name="address"/>
+		<property name="schoolgrade"/>
+		<property name="studyinf"/>
+		<property name="pay"/>
+		<!--
+		<property name="req"/>
+		-->
+		<property name="prt_id"/>
+		<property name="thr_id"/>
+		
+		<property name="postdate"/>
+		<property name="onesubject"/>
+		<property name="state"/>
+		
+		<property name="threquire"/>
+	</class>
+</hibernate-mapping>
