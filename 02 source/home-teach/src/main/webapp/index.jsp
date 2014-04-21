@@ -23,7 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .text {	LINE-HEIGHT: 20px
 }
 </STYLE>
-<script src="js/validation-framework.js"></script>
 
 <META name=GENERATOR content="MSHTML 8.00.6001.18702"></HEAD>
 <BODY background=images/bg.gif>

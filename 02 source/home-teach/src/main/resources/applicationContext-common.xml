@@ -9,7 +9,7 @@
 	<!-- ÅäÖÃsessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="configLocation">
+		<property name="configLocations">
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean>

@@ -10,10 +10,27 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2014-04-18 11:53:40
+Date: 2014-04-21 21:52:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for after_service
+-- ----------------------------
+DROP TABLE IF EXISTS `after_service`;
+CREATE TABLE `after_service` (
+  `id` varchar(36) NOT NULL,
+  `sell_id` varchar(36) DEFAULT NULL,
+  `problem` varchar(200) DEFAULT NULL,
+  `back` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of after_service
+-- ----------------------------
+INSERT INTO `after_service` VALUES ('4028d68145310e320145311154800000', '4028d6814522a1dd014522a29cb20000', '的萨大声', '1');
 
 -- ----------------------------
 -- Table structure for customer
@@ -49,6 +66,7 @@ CREATE TABLE `sell` (
 -- ----------------------------
 -- Records of sell
 -- ----------------------------
+INSERT INTO `sell` VALUES ('4028d6814522a1dd014522a29cb20000', '段浩', '1', null, null);
 
 -- ----------------------------
 -- Table structure for shoe
@@ -85,3 +103,9 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', 'admin', '123');
+
+-- ----------------------------
+-- View structure for after_service_view
+-- ----------------------------
+DROP VIEW IF EXISTS `after_service_view`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `after_service_view` AS select `a`.`customer` AS `customer`,`a`.`type` AS `type`,`a`.`quantity` AS `quantity`,`a`.`price` AS `price`,`b`.`id` AS `id`,`a`.`id` AS `sell_id`,`b`.`problem` AS `problem`,`b`.`back` AS `back` from (`sell` `a` left join `after_service` `b` on((`a`.`id` = `b`.`sell_id`))) where (`a`.`type` = '1') ;
