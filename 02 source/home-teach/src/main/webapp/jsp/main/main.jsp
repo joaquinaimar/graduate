@@ -164,7 +164,7 @@
                 style="TEXT-ALIGN: left; PADDING-LEFT: 15px; PADDING-TOP: 4px" 
                 height=28 width=172><IMG align=absMiddle 
                   src="images/ico_02.jpg" width=5 height=13>　<STRONG><A 
-                  href="">家长必读</A></STRONG></TD>
+                  href="">学生必读</A></STRONG></TD>
                 <TD bgColor=#dcddd8 background=images/line_s.jpg 
                 width=1></TD>
                 <TD style="PADDING-LEFT: 10px; PADDING-TOP: 4px" width=594>
@@ -186,7 +186,7 @@
                     <TBODY>
                     <TR>
                       <TD height=25>·<A class=red 
-                        href="">家长必读</A></TD></TR></TBODY></TABLE>
+                        href="">学生必读</A></TD></TR></TBODY></TABLE>
                   <TABLE border=0 cellSpacing=0 cellPadding=2 width=170>
                     <TBODY>
                     <TR>

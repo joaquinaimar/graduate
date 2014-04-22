@@ -42,12 +42,12 @@
                 colSpan=4><STRONG>::::教员详细资料::::</STRONG></TD>
                                          </TR>
                                          <TR>
-                                           <TD height=25 width=103 align=left><STRONG>家长称呼：</STRONG></TD>
+                                           <TD height=25 width=103 align=left><STRONG>学生称呼：</STRONG></TD>
                                            <TD height=25 width=680 align=left>${thr.ch_name}</TD>
                                          </TR>
                                           <TR bgColor=#eef0f2>
                                            <TD bgColor=#eef0f2 height=25 width=103 
-                  align=left><STRONG>家长编号：</STRONG></TD>
+                  align=left><STRONG>学生编号：</STRONG></TD>
                                            <TD bgColor=#eef0f2 height=25 width=680 align=left>T${thr.user_id}</TD>             
                                          </TR>
                                          <TR>

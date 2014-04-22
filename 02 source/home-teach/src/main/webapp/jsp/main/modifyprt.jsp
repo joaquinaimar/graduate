@@ -30,7 +30,7 @@
                                   <TBODY>
                                     <TR align=middle bgColor=#eef0f2>
                                       <TD height=25 
-                colSpan=4><STRONG>::::家长信息修改::::<a href="blank.do?url=modifypwd">::::进行密码修改::::</a></STRONG></TD>
+                colSpan=4><STRONG>::::学生信息修改::::<a href="blank.do?url=modifypwd">::::进行密码修改::::</a></STRONG></TD>
                                     </TR>
                                     <TR>
                                       <TD height=25 width=103 align=left><STRONG>用户名：</STRONG></TD>

@@ -71,7 +71,7 @@ href="images/indexcss.css">
           <TD height=23 width=55 align=left><IMG src="images/dh_left.jpg" 
             width=55 height=23></TD>
           <TD style="TEXT-ALIGN: left; PADDING-LEFT: 10px; PADDING-TOP: 4px" class=dh bgColor=#c60001 height=23 width=595>            <a href="blank.do?url=mgrmain" class=dh>管理</a><span class="STYLE3">
-          |</span><A href="mgr.do?method=prtList" class=dh >家长管理</A><span class="STYLE3"> |</span><a href="mgr.do?method=stuList" class=dh>学员管理</a><span class=dh> |<A  class=dh href="mgr.do?method=thrList">教员管理</A>
+          |</span><A href="mgr.do?method=prtList" class=dh >学生管理</A><span class="STYLE3"> |</span><a href="mgr.do?method=stuList" class=dh>学员管理</a><span class=dh> |<A  class=dh href="mgr.do?method=thrList">教员管理</A>
           <c:set value="${sessionScope.username}" var="adm" scope="page"/>
 			<c:set value="admin" var="mgrname" scope="page"/>
          	<c:if test="${pageScope.mgrname eq pageScope.adm}">|<A class=dh href="mgr.do?method=mgrList">站长管理</A>

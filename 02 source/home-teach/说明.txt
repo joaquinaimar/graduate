@@ -1,0 +1,1 @@
+建立数据库，然后执行http://localhost:8080/home-teach/login.do?method=initdata&username=admin&pwd=admin

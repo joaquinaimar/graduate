@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   <TBODY>
                                     <TR align=middle bgColor=#eef0f2>
                                       <TD height=25 
-                colSpan=4><STRONG>::::家长注册::::</STRONG></TD>
+                colSpan=4><STRONG>::::学生注册::::</STRONG></TD>
                                     </TR>
                                     <TR>
                                       <TD height=25 width=103 align=left><STRONG>用户名：</STRONG></TD>

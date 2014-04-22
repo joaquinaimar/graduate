@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                     <TD bgColor=#f4f5f7 align=left><SPAN class=text>
                                                       <INPUT 
                   type="radio" name="rote" id="parent" value="Parent">
-                                                      家长
+                                                      学生
                                                       <INPUT type="radio" name="rote" id="teacher" value="Teacher" checked="checked">
                                                       教员
                                                       <INPUT type="radio" name="rote" id="mgr" value="Manager">
@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   src="images/zhuc.jpg" width=10 height=10> <A 
                   href="blank.do?url=regthr">注册教员</A>　　<IMG 
                   src="images/zhuc.jpg" width=10 height=10> <A 
-                  href="blank.do?url=regprt">我是家长</A></TD>
+                  href="blank.do?url=regprt">我是学生</A></TD>
                                                   </TR>
                                                   <TR bgColor=#f4f5f7>
                                                     <TD class=text height=25 colSpan=2 align=middle><INPUT value=" 提交 " type=submit name=submit>

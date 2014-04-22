@@ -11,7 +11,7 @@
         <TBODY>
         <TR>
           <TD height=25>
-            <DIV align=left>您当前的位置: <A href="blank.do?url=mgrmain">管理</A>            &gt;&gt; 家长管理</DIV></TD></TR>
+            <DIV align=left>您当前的位置: <A href="blank.do?url=mgrmain">管理</A>            &gt;&gt; 学生管理</DIV></TD></TR>
         <TR></TR>
         <TR></TR>
         <TR>
@@ -25,7 +25,7 @@
 			                     <TABLE class=xylist border=0 cellSpacing=1 cellPadding=0 width="100%">
         <TBODY>
 						                    <TR class=FLine bgColor=#eef0f2>
-						                      <TD width="8%"><div align="center"><STRONG>家长编号</STRONG></div></TD>
+						                      <TD width="8%"><div align="center"><STRONG>学生编号</STRONG></div></TD>
                                               <TD width="9%"><div align="center"><STRONG>用户名</STRONG></div></TD>
 						                      <TD width="5%"><div align="center"><strong>称呼</strong></div></TD>
 						                      <TD width="10%"><div align="center"><strong>性别</strong></div></TD>
