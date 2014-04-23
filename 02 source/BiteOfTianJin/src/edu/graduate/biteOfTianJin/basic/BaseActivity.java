@@ -10,6 +10,7 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
 import edu.graduate.biteOfTianJin.R;
 import edu.graduate.biteOfTianJin.application.activity.login.LoginActivity;
+import edu.graduate.biteOfTianJin.application.activity.register.RegisterActivity;
 
 public class BaseActivity extends OrmLiteBaseActivity<SqliteHelper> {
 
@@ -25,6 +26,9 @@ public class BaseActivity extends OrmLiteBaseActivity<SqliteHelper> {
 		switch (item.getItemId()) {
 		case R.id.action_login:
 			redirectTo(LoginActivity.class);
+			break;
+		case R.id.action_register:
+			redirectTo(RegisterActivity.class);
 			break;
 		case R.id.action_exit:
 			ExitApplication.getInstance().exit();
