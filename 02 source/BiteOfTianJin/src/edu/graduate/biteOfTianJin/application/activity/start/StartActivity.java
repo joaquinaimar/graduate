@@ -13,6 +13,7 @@ import com.j256.ormlite.dao.Dao;
 import edu.graduate.biteOfTianJin.R;
 import edu.graduate.biteOfTianJin.application.activity.main.MainActivity;
 import edu.graduate.biteOfTianJin.basic.BaseActivity;
+import edu.graduate.biteOfTianJin.domain.entity.ReviewEntity;
 import edu.graduate.biteOfTianJin.domain.entity.ShopEntity;
 import edu.graduate.biteOfTianJin.domain.entity.UserEntity;
 
@@ -75,10 +76,13 @@ public class StartActivity extends BaseActivity {
 		Dao<UserEntity, Integer> userDao = getHelper().getDao(UserEntity.class);
 		userDao.deleteBuilder().delete();
 		UserEntity userEntity = new UserEntity();
-		userEntity.setUsername("chihuo");
+		userEntity.setUsername("admin");
 		userEntity.setPassword("123");
 		userDao.create(userEntity);
 
+		Dao<ReviewEntity, Integer> reviewDao = getHelper().getDao(
+				ReviewEntity.class);
+		reviewDao.deleteBuilder().delete();
 	}
 
 }

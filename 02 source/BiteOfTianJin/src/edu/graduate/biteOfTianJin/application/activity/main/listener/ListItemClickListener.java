@@ -7,11 +7,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 import edu.graduate.biteOfTianJin.R;
-import edu.graduate.biteOfTianJin.application.activity.login.LoginActivity;
 import edu.graduate.biteOfTianJin.application.activity.shop.ShopActivity;
 import edu.graduate.biteOfTianJin.basic.BaseActivity;
-import edu.graduate.biteOfTianJin.basic.DialogUtil;
-import edu.graduate.biteOfTianJin.basic.SessionStore;
 
 public class ListItemClickListener implements OnItemClickListener {
 
@@ -24,17 +21,12 @@ public class ListItemClickListener implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		if (null == SessionStore.username) {
-			DialogUtil.alert(activity, "请先登录！");
-			((BaseActivity) activity).redirectTo(LoginActivity.class);
-		} else {
-			Integer selectId = Integer.valueOf(((TextView) view
-					.findViewById(R.id.hiddenId)).getText().toString());
-			Bundle bundle = new Bundle();
-			bundle.putInt("id", selectId);
-			((BaseActivity) activity).redirectTo(ShopActivity.class, "select",
-					bundle);
-		}
+		Integer selectId = Integer.valueOf(((TextView) view
+				.findViewById(R.id.hiddenId)).getText().toString());
+		Bundle bundle = new Bundle();
+		bundle.putInt("id", selectId);
+		((BaseActivity) activity).redirectTo(ShopActivity.class, "select",
+				bundle);
 
 	}
 

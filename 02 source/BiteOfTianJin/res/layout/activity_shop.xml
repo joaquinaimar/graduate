@@ -14,23 +14,24 @@
         android:id="@+id/textViewShopNameContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FAFAD2"
         android:layout_alignBottom="@+id/imageViewFrontCoverContent"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imageViewFrontCoverContent"
+        android:background="#FAFAD2"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/textViewSuggestContent"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:background="#FAFAD2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageViewFrontCoverContent" />
+        android:layout_below="@+id/imageViewFrontCoverContent"
+        android:background="#FAFAD2" />
 
     <TableLayout
+        android:id="@+id/tableDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -39,9 +40,9 @@
 
         <TableRow
             android:id="@+id/tableRow1"
-            android:background="#00CCCC"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:background="#00CCCC" >
 
             <TextView
                 android:id="@+id/textViewTypeLabel"
@@ -78,9 +79,9 @@
 
         <TableRow
             android:id="@+id/tableRow3"
-            android:background="#00CCCC"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:background="#00CCCC" >
 
             <TextView
                 android:id="@+id/textViewPhoneNoLabel"
@@ -115,5 +116,55 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
     </TableLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeReView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableDetail" >
+
+        <TextView
+            android:id="@+id/textViewMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="评论，请先登录"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editTextReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btnReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/editTextReview"
+            android:text="评论" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/relativeReView"
+        android:background="#FAFAD2"
+        android:paddingTop="10dp" >
+    </ListView>
 
 </RelativeLayout>
