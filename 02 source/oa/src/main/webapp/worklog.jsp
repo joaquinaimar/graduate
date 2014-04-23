@@ -34,7 +34,7 @@
 	</TR>
 </TABLE>
 <b><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></b>
-<TABLE border="0" width="100%">
+<TABLE class="table-grid" border="0" width="100%">
 	<TR class="tableheader">
 		<TD><bean:message key="worklog.page.year" /></TD>
 		<TD><bean:message key="worklog.page.month" /></TD>
