@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+
+	<definition name="siteLayout" template="/WEB-INF/jsp/layout/sitePageLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/layout/siteHeader.jsp" />
+		<put-attribute name="left" value="/WEB-INF/jsp/layout/null.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/layout/null.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="loginLayout" template="/WEB-INF/jsp/layout/loginPageLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/layout/loginHeader.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/layout/null.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="login" extends="loginLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+	
+	<definition name="register" extends="loginLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
+	</definition>
+	
+	<definition name="placeShow" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_place_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/place_show.jsp" />
+	</definition>
+	
+	<definition name="placeAdd" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_place_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/place_add.jsp" />
+	</definition>
+	
+	<definition name="placeUpdate" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_place_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/place_update.jsp" />
+	</definition>
+	
+	<definition name="memberMgr" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_member_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/member_show.jsp" />
+	</definition>
+	
+	<definition name="memberAdd" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_member_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/member_add.jsp" />
+	</definition>
+	
+	<definition name="memberUpdate" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_member_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/member_update.jsp" />
+	</definition>
+	
+	<definition name="ladderShow" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_ladder_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/ladder_show.jsp" />
+	</definition>
+
+	<definition name="ladderAdd" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_ladder_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/ladder_add.jsp" />
+	</definition>
+
+</tiles-definitions>

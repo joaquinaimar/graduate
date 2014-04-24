@@ -1,0 +1,57 @@
+.ui-multiselect {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 0px; PADDING-TOP: 2px
+}
+.ui-multiselect SPAN.ui-icon {
+	FLOAT: right
+}
+.ui-multiselect-single .ui-multiselect-checkboxes INPUT {
+	POSITION: absolute !important; TOP: auto !important; LEFT: -9999px
+}
+.ui-multiselect-single .ui-multiselect-checkboxes LABEL {
+	PADDING-BOTTOM: 5px !important; PADDING-LEFT: 5px !important; PADDING-RIGHT: 5px !important; PADDING-TOP: 5px !important
+}
+.ui-multiselect-header {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 4px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.ui-multiselect-header UL {
+	FONT-SIZE: 0.9em
+}
+.ui-multiselect-header UL LI {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 10px; FLOAT: left; PADDING-TOP: 0px
+}
+.ui-multiselect-header A {
+	TEXT-DECORATION: none
+}
+.ui-multiselect-header A:hover {
+	TEXT-DECORATION: underline
+}
+.ui-multiselect-header SPAN.ui-icon {
+	FLOAT: left
+}
+.ui-multiselect-header LI.ui-multiselect-close {
+	TEXT-ALIGN: right; PADDING-RIGHT: 0px; FLOAT: right
+}
+.ui-multiselect-menu {
+	Z-INDEX: 10000; POSITION: absolute; TEXT-ALIGN: left; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; DISPLAY: none; PADDING-TOP: 3px
+}
+.ui-multiselect-checkboxes {
+	POSITION: relative; OVERFLOW-Y: scroll
+}
+.ui-multiselect-checkboxes LABEL {
+	BORDER-BOTTOM: transparent 1px solid; BORDER-LEFT: transparent 1px solid; PADDING-BOTTOM: 3px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; DISPLAY: block; BORDER-TOP: transparent 1px solid; CURSOR: default; BORDER-RIGHT: transparent 1px solid; PADDING-TOP: 3px
+}
+.ui-multiselect-checkboxes LABEL INPUT {
+	POSITION: relative; TOP: 1px
+}
+.ui-multiselect-checkboxes LI {
+	PADDING-RIGHT: 3px; CLEAR: both; FONT-SIZE: 0.9em
+}
+.ui-multiselect-checkboxes LI.ui-multiselect-optgroup-label {
+	BORDER-BOTTOM: 1px solid; TEXT-ALIGN: center; FONT-WEIGHT: bold
+}
+.ui-multiselect-checkboxes LI.ui-multiselect-optgroup-label A {
+	PADDING-BOTTOM: 3px; MARGIN: 1px 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; DISPLAY: block; TEXT-DECORATION: none; PADDING-TOP: 3px
+}
+* HTML .ui-multiselect-checkboxes LABEL {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}

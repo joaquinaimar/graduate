@@ -1,0 +1,82 @@
+<!DOCTYPE struts PUBLIC   
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+        
+<struts>
+
+	<package name="user" extends="tiles-default" namespace="/user">
+		
+		<action name="home" class="homeAction">
+			<result name="success" type="tiles">login</result>
+		</action>
+	
+		<action name="login" class="loginAction">
+			<result name="view" type="tiles">login</result>
+			<result name="input" type="tiles">login</result>
+			<result name="success" type="redirect">/place/placeShow.action</result>
+		</action>
+		
+		<action name="register" class="registerAction">
+			<result name="view" type="tiles">register</result>
+			<result name="success" type="tiles">login</result>
+		</action>
+		
+	</package>
+	
+	<package name="place" extends="tiles-default" namespace="/place">
+		<action name="placeShow" class="placeShowAction">
+			<result name="success" type="tiles">placeShow</result>
+		</action>
+		<action name="placeAdd" class="placeAddAction">
+			<result name="view" type="tiles">placeAdd</result>
+			<result name="success" type="redirect">placeShow.action</result>
+		</action>
+		<action name="placeUpdate" class="placeUpdateAction">
+			<result name="view" type="tiles">placeUpdate</result>
+			<result name="success" type="redirect">placeUpdate!view.action</result>
+		</action>
+	</package>
+	
+	<package name="member" extends="tiles-default" namespace="/member">
+		<action name="memberMgr" class="memberMgrAction">
+			<result name="view" type="tiles">memberMgr</result>
+		</action>
+		
+		<action name="memberAdd" class="memberAddAction">
+			<result name="view" type="tiles">memberAdd</result>
+			<result name="success" type="redirect">memberMgr!view.action</result>
+		</action>
+		
+		<action name="memberUpdate" class="memberUpdateAction">
+			<result name="view" type="tiles">memberUpdate</result>
+			<result name="success" type="redirect">memberUpdate!view.action</result>
+		</action>
+	</package>
+	
+	<package name="order" extends="tiles-default" namespace="/order">
+		<action name="orderAdd" class="orderAddAction">
+			<result name="success" type="redirect">/place/placeShow.action</result>
+		</action>
+		
+		<action name="orderSettle" class="orderSettleAction">
+			<result name="success" type="redirect">/member/memberMgr!view.action</result>
+		</action>
+	</package>
+	
+	<package name="ladder" extends="tiles-default" namespace="/ladder">
+		<action name="ladderShow" class="ladderShowAction">
+			<result name="success" type="tiles">ladderShow</result>
+		</action>
+		
+		<action name="ladderAdd" class="ladderAddAction">
+			<result name="view" type="tiles">ladderAdd</result>
+			<result name="success" type="redirect">ladderShow.action</result>
+		</action>
+		
+		<action name="ladderUpdate" class="ladderUpdateAction">
+			<result name="view" type="tiles">ladderUpdate</result>
+			<result name="success" type="redirect">ladderUpdate!view.action</result>
+		</action>
+	</package>
+	
+</struts>
