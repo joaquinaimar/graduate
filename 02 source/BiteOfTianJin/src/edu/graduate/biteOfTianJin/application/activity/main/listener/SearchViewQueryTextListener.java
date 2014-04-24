@@ -14,7 +14,8 @@ public class SearchViewQueryTextListener implements OnQueryTextListener {
 
 	@Override
 	public boolean onQueryTextChange(String text) {
-		((MainActivity) this.activity).getResultList(text);
+		((MainActivity) this.activity).text = text;
+		((MainActivity) this.activity).getResultList();
 		return false;
 	}
 
