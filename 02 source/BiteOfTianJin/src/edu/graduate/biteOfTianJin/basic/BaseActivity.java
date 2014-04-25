@@ -3,6 +3,7 @@ package edu.graduate.biteOfTianJin.basic;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -39,6 +40,17 @@ public class BaseActivity extends OrmLiteBaseActivity<SqliteHelper> {
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			if (!"MainActivity".equals(this.getClass().getSimpleName()))
+				redirectTo(MainActivity.class);
+			else
+				ExitApplication.getInstance().exit();
+		}
+		return false;
 	}
 
 	public <T extends Activity> void redirectTo(Class<T> t, String name,
