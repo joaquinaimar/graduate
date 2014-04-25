@@ -41,6 +41,9 @@ public class Customer extends EntityTemplate {
 	@Column(name = "location")
 	private String location = null;
 
+	@Column(name = "type")
+	private String type = null;
+
 	public String getId() {
 		return id;
 	}
@@ -79,6 +82,14 @@ public class Customer extends EntityTemplate {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

@@ -3,6 +3,8 @@ function searchSell() {
 	var params = {
 		customer : form.findField("customer").getValue(),
 		type : form.findField("type").getValue(),
+		fromDate : form.findField("fromDate").getValue(),
+		toDate : form.findField("toDate").getValue(),
 		start : 0,
 		limit : 50
 	};
@@ -10,6 +12,21 @@ function searchSell() {
 	Ext.apply(gridStore.proxy.extraParams, params);
 
 	gridStore.load();
+}
+
+function gatherInFo() {
+	Ext.Ajax.request({
+		url : contextPath + '/controller/sell/gatherInFo.do',
+		method : 'POST',
+		success : function(response, options) {
+			if (response.responseText) {
+				var result = Ext.JSON.decode(response.responseText).data;
+				var form = Ext.getCmp("gatherPanel").getForm();
+				for ( var p in result)
+					form.findField(p).setValue(result[p]);
+			}
+		}
+	});
 }
 
 function saveSell() {

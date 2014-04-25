@@ -1,10 +1,14 @@
 package edu.graduate.shoe.manage.domain.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -40,6 +44,10 @@ public class Sell extends EntityTemplate {
 
 	@Column(name = "price")
 	private Double price = null;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "time")
+	private Date time = null;
 
 	public String getId() {
 		return id;
@@ -79,6 +87,14 @@ public class Sell extends EntityTemplate {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 }

@@ -45,6 +45,19 @@ shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 			fieldLabel : '客户名',
 			id : 'name',
 			name : 'name'
+		}, {
+			xtype : 'combobox',
+			editable : false,
+			labelWidth : 50,
+			fieldLabel : '类型',
+			id : 'type',
+			name : 'type',
+			emptyText : '请选择',
+			queryMode : 'local',
+			triggerAction : 'all',
+			store : typeStore,
+			valueField : 'vf',
+			displayField : 'df'
 		} ]
 	} ],
 	buttons : [ {
@@ -107,6 +120,16 @@ shoe.customer.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		text : "所在地",
 		width : 500,
 		dataIndex : 'location'
+	}, {
+		text : "类型",
+		width : 50,
+		dataIndex : 'type',
+		renderer : function(value, metaData, record) {
+			if ("0" == value)
+				return "进货商";
+			else if ("1" == value)
+				return "出货商";
+		}
 	} ],
 	listeners : {
 		itemdblclick : function(view, record, item, index, e, eOpts) {
@@ -128,11 +151,11 @@ shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
 	id : 'childWindow',
 	autoScroll : true,
 	width : 350,
-	height : 225,
+	height : 250,
 	minWidth : 350,
-	minHeight : 225,
+	minHeight : 250,
 	maxWidth : 350,
-	maxHeight : 225,
+	maxHeight : 250,
 	maximizable : false,
 	modal : true,
 	items : [ {
@@ -167,6 +190,18 @@ shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
 			xtype : 'textarea',
 			id : 'childLocation',
 			name : 'location'
+		}, {
+			xtype : 'combobox',
+			editable : false,
+			fieldLabel : '类型',
+			id : 'childType',
+			name : 'type',
+			emptyText : '请选择',
+			queryMode : 'local',
+			triggerAction : 'all',
+			store : typeStore,
+			valueField : 'vf',
+			displayField : 'df'
 		} ]
 	} ],
 	buttons : [ {

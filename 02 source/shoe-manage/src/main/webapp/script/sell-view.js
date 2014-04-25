@@ -17,10 +17,11 @@ shoe.sell.MainPanel = Ext.extend(Ext.Panel, {
 	title : '销售记录',
 	constructor : function(config) {
 		var searchPanel = new shoe.sell.SearchPanel();
+		var gatherPanel = new shoe.sell.GatherPanel();
 		var gridPanel = new shoe.sell.GridPanel();
 
 		var group = {
-			items : [ searchPanel, gridPanel ]
+			items : [ searchPanel, gatherPanel, gridPanel ]
 		};
 
 		shoe.sell.MainPanel.superclass.constructor.call(this, group);
@@ -37,7 +38,7 @@ shoe.sell.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 		frame : true,
 		layout : {
 			type : 'table',
-			columns : 3
+			columns : 4
 		},
 		items : [ {
 			xtype : 'textfield',
@@ -58,6 +59,22 @@ shoe.sell.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 			store : typeStore,
 			valueField : 'vf',
 			displayField : 'df'
+		}, {
+			xtype : 'datefield',
+			labelWidth : 100,
+			fieldLabel : '开始时间',
+			id : 'fromDate',
+			name : 'fromDate',
+			format : 'Y-m-d',
+			editable : false
+		}, {
+			xtype : 'datefield',
+			labelWidth : 100,
+			fieldLabel : '结束时间',
+			id : 'toDate',
+			name : 'toDate',
+			format : 'Y-m-d',
+			editable : false
 		} ]
 	} ],
 	buttons : [ {
@@ -85,6 +102,42 @@ shoe.sell.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 		handler : function() {
 			deleteSell();
 		}
+	} ]
+});
+
+shoe.sell.GatherPanel = Ext.extend(Ext.form.FormPanel, {
+	id : 'gatherPanel',
+	region : 'north',
+	frame : true,
+	layout : 'fit',
+	items : [ {
+		frame : true,
+		layout : {
+			type : 'table',
+			columns : 3
+		},
+		items : [ {
+			xtype : 'textfield',
+			labelWidth : 100,
+			fieldLabel : '进货量',
+			id : 'inQuantity',
+			name : 'inQuantity',
+			readOnly : true
+		}, {
+			xtype : 'textfield',
+			labelWidth : 100,
+			fieldLabel : '出货量',
+			id : 'outQuantity',
+			name : 'outQuantity',
+			readOnly : true
+		}, {
+			xtype : 'textfield',
+			labelWidth : 100,
+			fieldLabel : '库存量',
+			id : 'stockQuantity',
+			name : 'stockQuantity',
+			readOnly : true
+		} ]
 	} ]
 });
 
@@ -126,6 +179,12 @@ shoe.sell.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		text : "单价",
 		width : 100,
 		dataIndex : 'price'
+	}, {
+		text : "时间",
+		width : 200,
+		xtype : 'datecolumn',
+		format : 'Y-m-d H:i:s',
+		dataIndex : 'time'
 	} ],
 	listeners : {
 		itemdblclick : function(view, record, item, index, e, eOpts) {

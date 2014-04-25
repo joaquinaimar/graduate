@@ -1,9 +1,15 @@
 package edu.graduate.shoe.manage.application.web;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +21,7 @@ import edu.graduate.shoe.manage.basic.io.PageResponse;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtPageRequest;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtPageResponse;
 import edu.graduate.shoe.manage.basic.io.extjs.ExtResponse;
+import edu.graduate.shoe.manage.domain.GatherSell;
 import edu.graduate.shoe.manage.domain.entity.Customer;
 import edu.graduate.shoe.manage.domain.entity.Sell;
 
@@ -25,17 +32,36 @@ public class SellController {
 	@Autowired
 	private SellService sellService = null;
 
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(true);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
+	}
+
 	@RequestMapping(value = "/searchSell.do", method = RequestMethod.GET)
 	@ResponseBody
-	public ExtPageResponse<Sell> searchSell(Sell sell,
-			ExtPageRequest pageRequest) {
-		PageResponse<Sell> page = sellService.searchSell(sell, pageRequest);
+	public ExtPageResponse<Sell> searchSell(Sell sell, Date fromDate,
+			Date toDate, ExtPageRequest pageRequest) {
+		PageResponse<Sell> page = sellService.searchSell(sell, fromDate,
+				toDate, pageRequest);
 		return new ExtPageResponse<Sell>(true, page);
+	}
+
+	@RequestMapping(value = "/gatherInFo.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ExtResponse<GatherSell> gatherInFo() {
+		GatherSell gatherSell = new GatherSell();
+		gatherSell.setInQuantity(sellService.gatherInFo(0));
+		gatherSell.setOutQuantity(sellService.gatherInFo(1));
+		return new ExtResponse<GatherSell>(true, gatherSell);
 	}
 
 	@RequestMapping(value = "/saveSell.do", method = RequestMethod.POST)
 	@ResponseBody
 	public ExtResponse<Object> saveSell(@ModelAttribute Sell sell) {
+		sell.setTime(new Date());
 		if (null == sell.getId() || "".equals(sell.getId())) {
 			sellService.insertSell(sell);
 		} else {

@@ -1,10 +1,14 @@
 package edu.graduate.shoe.manage.domain.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -32,11 +36,18 @@ public class AfterService extends EntityTemplate {
 	@Column(name = "sell_id")
 	private String sellId = null;
 
+	@Column(name = "back_quantity")
+	private Integer backQuantity = null;
+
 	@Column(name = "problem")
 	private String problem = null;
 
 	@Column(name = "back")
 	private Integer back = null;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "time")
+	private Date time = null;
 
 	public String getId() {
 		return id;
@@ -54,6 +65,14 @@ public class AfterService extends EntityTemplate {
 		this.sellId = sellId;
 	}
 
+	public Integer getBackQuantity() {
+		return backQuantity;
+	}
+
+	public void setBackQuantity(Integer backQuantity) {
+		this.backQuantity = backQuantity;
+	}
+
 	public String getProblem() {
 		return problem;
 	}
@@ -68,6 +87,14 @@ public class AfterService extends EntityTemplate {
 
 	public void setBack(Integer back) {
 		this.back = back;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 }

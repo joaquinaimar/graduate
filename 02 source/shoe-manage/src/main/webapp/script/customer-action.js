@@ -2,6 +2,7 @@ function searchCustomer() {
 	var form = Ext.getCmp("searchPanel").getForm();
 	var params = {
 		name : form.findField("name").getValue(),
+		type : form.findField("type").getValue(),
 		start : 0,
 		limit : 50
 	};

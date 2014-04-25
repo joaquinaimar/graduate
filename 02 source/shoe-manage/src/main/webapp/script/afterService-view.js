@@ -45,18 +45,34 @@ shoe.afterService.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 			fieldLabel : '客户名',
 			id : 'customer',
 			name : 'customer'
+		}, {
+			xtype : 'datefield',
+			labelWidth : 100,
+			fieldLabel : '开始时间',
+			id : 'fromDate',
+			name : 'fromDate',
+			format : 'Y-m-d',
+			editable : false
+		}, {
+			xtype : 'datefield',
+			labelWidth : 100,
+			fieldLabel : '结束时间',
+			id : 'toDate',
+			name : 'toDate',
+			format : 'Y-m-d',
+			editable : false
 		} ]
 	} ],
 	buttons : [ {
 		text : '查询',
 		handler : function() {
-			searchSell();
+			searchSfterServiceSell();
 		}
 	}, {
 		text : '重置',
 		handler : function() {
 			Ext.getCmp("searchPanel").getForm().reset();
-			searchSell();
+			searchSfterServiceSell();
 		}
 	} ]
 });
@@ -89,6 +105,16 @@ shoe.afterService.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		width : 100,
 		dataIndex : 'price'
 	}, {
+		text : "销售时间",
+		width : 200,
+		xtype : 'datecolumn',
+		format : 'Y-m-d H:i:s',
+		dataIndex : 'sellTime'
+	}, {
+		text : "退回数量",
+		width : 100,
+		dataIndex : 'backQuantity'
+	}, {
 		text : "问题",
 		width : 300,
 		dataIndex : 'problem'
@@ -103,6 +129,12 @@ shoe.afterService.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 				return "是";
 
 		}
+	}, {
+		text : "退货时间",
+		width : 200,
+		xtype : 'datecolumn',
+		format : 'Y-m-d H:i:s',
+		dataIndex : 'backTime'
 	} ],
 	listeners : {
 		itemdblclick : function(view, record, item, index, e, eOpts) {
@@ -152,19 +184,24 @@ shoe.afterService.ChildWindow = Ext.extend(Ext.Window, {
 			xtype : 'textfield',
 			id : 'childCustomer',
 			name : 'customer',
-			readOnly: true
+			readOnly : true
 		}, {
 			fieldLabel : '数量',
 			xtype : 'textfield',
 			id : 'childQuantity',
 			name : 'quantity',
-			readOnly: true
+			readOnly : true
 		}, {
 			fieldLabel : '单价',
 			xtype : 'textfield',
 			id : 'childPrice',
 			name : 'price',
-			readOnly: true
+			readOnly : true
+		}, {
+			fieldLabel : '退回数量',
+			xtype : 'textarea',
+			id : 'childBackQuantity',
+			name : 'backQuantity'
 		}, {
 			fieldLabel : '问题',
 			xtype : 'textarea',

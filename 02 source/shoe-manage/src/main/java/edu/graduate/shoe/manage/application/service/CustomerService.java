@@ -22,6 +22,8 @@ public class CustomerService extends BaseDao {
 		if (null != customer.getName() && !"".equals(customer.getName()))
 			criteria.add(Restrictions.like("name", "%" + customer.getName()
 					+ "%"));
+		if (null != customer.getType() && !"".equals(customer.getType()))
+			criteria.add(Restrictions.eq("type", customer.getType()));
 
 		return super.pageQuery(criteria, pageRequest);
 	}

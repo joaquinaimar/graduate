@@ -15,5 +15,26 @@ var gridStore = new Ext.data.Store({
 			root : 'result'
 		}
 	},
-	fields : [ 'id', 'name', 'no', 'age', 'location' ]
+	fields : [ 'id', 'name', 'no', 'age', 'location', 'type' ]
+});
+
+var typeStore = new Ext.data.ArrayStore({
+	autoload : true,
+	data : [ {
+		vf : "",
+		df : "全部"
+	}, {
+		vf : "0",
+		df : "进货商"
+	}, {
+		vf : "1",
+		df : "出货商"
+	} ],
+	fields : [ {
+		name : 'vf',
+		mapping : 'vf'
+	}, {
+		name : 'df',
+		mapping : 'df'
+	} ]
 });

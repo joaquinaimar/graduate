@@ -1,5 +1,7 @@
 package edu.graduate.shoe.manage.application.service;
 
+import java.util.Date;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
@@ -17,12 +19,17 @@ public class AfterServiceService extends BaseDao {
 
 	@SuppressWarnings("unchecked")
 	public PageResponse<AfterServiceView> searchAfterService(
-			AfterServiceView afterServiceView, ExtPageRequest pageRequest) {
+			AfterServiceView afterServiceView, Date fromDate, Date toDate,
+			ExtPageRequest pageRequest) {
 		Criteria criteria = super.createCriteria(AfterServiceView.class);
 		if (null != afterServiceView.getCustomer()
 				&& !"".equals(afterServiceView.getCustomer()))
 			criteria.add(Restrictions.like("customer",
 					"%" + afterServiceView.getCustomer() + "%"));
+		if (null != fromDate)
+			criteria.add(Restrictions.ge("backTime", fromDate));
+		if (null != toDate)
+			criteria.add(Restrictions.le("backTime", toDate));
 
 		return super.pageQuery(criteria, pageRequest);
 	}
