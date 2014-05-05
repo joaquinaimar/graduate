@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.extjs.ExtPageRequest;
+import edu.graduate.basic.io.extjs.ExtPageResponse;
+import edu.graduate.basic.io.extjs.ExtResponse;
 import edu.graduate.shoe.manage.application.service.CustomerService;
-import edu.graduate.shoe.manage.basic.io.PageResponse;
-import edu.graduate.shoe.manage.basic.io.extjs.ExtPageRequest;
-import edu.graduate.shoe.manage.basic.io.extjs.ExtPageResponse;
-import edu.graduate.shoe.manage.basic.io.extjs.ExtResponse;
 import edu.graduate.shoe.manage.domain.entity.Customer;
 
 @Controller

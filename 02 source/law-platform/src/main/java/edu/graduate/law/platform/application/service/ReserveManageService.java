@@ -6,9 +6,9 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.graduate.law.platform.basic.database.BaseDao;
-import edu.graduate.law.platform.basic.io.PageResponse;
-import edu.graduate.law.platform.basic.io.extjs.ExtPageRequest;
+import edu.graduate.basic.database.BaseDao;
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.extjs.ExtPageRequest;
 import edu.graduate.law.platform.domain.entity.ReserveManage;
 
 @Service

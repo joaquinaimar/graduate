@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.extjs.ExtPageRequest;
+import edu.graduate.basic.io.extjs.ExtPageResponse;
+import edu.graduate.basic.io.extjs.ExtResponse;
 import edu.graduate.law.platform.application.service.LawyerInfoService;
-import edu.graduate.law.platform.basic.io.PageResponse;
-import edu.graduate.law.platform.basic.io.extjs.ExtPageRequest;
-import edu.graduate.law.platform.basic.io.extjs.ExtPageResponse;
-import edu.graduate.law.platform.basic.io.extjs.ExtResponse;
 import edu.graduate.law.platform.domain.entity.Lawyer;
 import edu.graduate.law.platform.domain.entity.LawyerDetail;
 import edu.graduate.law.platform.domain.entity.Reserve;

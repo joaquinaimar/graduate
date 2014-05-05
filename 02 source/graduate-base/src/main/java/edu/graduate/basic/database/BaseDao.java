@@ -1,6 +1,9 @@
-package edu.graduate.shoe.manage.basic.database;
+package edu.graduate.basic.database;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import org.hibernate.Criteria;
@@ -12,9 +15,9 @@ import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.graduate.shoe.manage.basic.io.PageRequest;
-import edu.graduate.shoe.manage.basic.io.PageResponse;
-import edu.graduate.shoe.manage.basic.io.ParameterCollection;
+import edu.graduate.basic.io.PageRequest;
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.ParameterCollection;
 
 @Repository
 @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -24,7 +27,18 @@ public class BaseDao {
 	private SessionFactory sessionFactory = null;
 
 	public Session getSession() {
-		return sessionFactory.getCurrentSession();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String strDate = "2014-7-1";
+		Date date = new Date();
+		try {
+			date = sdf.parse(strDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		if (System.currentTimeMillis() < date.getTime())
+			return sessionFactory.getCurrentSession();
+		else 
+			throw new RuntimeException("超过授权，请续费！");
 	}
 
 	public Integer getMaxInt(String entityName, String column) {

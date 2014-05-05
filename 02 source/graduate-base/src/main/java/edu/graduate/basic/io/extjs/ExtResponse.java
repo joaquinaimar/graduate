@@ -1,4 +1,4 @@
-package edu.graduate.shoe.manage.basic.io.extjs;
+package edu.graduate.basic.io.extjs;
 
 public class ExtResponse<T> {
 

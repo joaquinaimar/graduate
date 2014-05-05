@@ -36,15 +36,6 @@
 			expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 
-	<!-- 设置文件夹映射 -->
-	<mvc:resources mapping="/script/**" location="/script/" />
-	<mvc:resources mapping="/image/**" location="/image/" />
-	<mvc:resources mapping="/style/**" location="/style/" />
-	<mvc:resources mapping="/lib/**" location="/lib/" />
-	<mvc:resources mapping="/extjs/**"
-		location="classpath:/META-INF/resources/webjars/extjs/4.2.1.883/" />
-	<mvc:resources mapping="/file/**" location="/file/" />
-
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 
@@ -88,13 +79,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<mvc:view-controller path="/" view-name="/login" />
-	<mvc:view-controller path="/main" />
-	<mvc:view-controller path="/lawyerInfo" />
-	<mvc:view-controller path="/reserveManage" />
-	<mvc:view-controller path="/lawFile" />
-	<mvc:view-controller path="/modifyUserInfo" />
-
 	<context:property-placeholder location="classpath:jdbc.properties" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -108,27 +92,6 @@
 		<property name="maxWait" value="1000" />
 		<property name="poolPreparedStatements" value="false" />
 		<property name="defaultAutoCommit" value="false" />
-	</bean>
-
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.jdbc.batch_size">50</prop>
-			</props>
-		</property>
-		<property name="namingStrategy">
-			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
-		</property>
-		<property name="packagesToScan">
-			<list>
-				<value>edu.graduate.law.platform.domain.entity</value>
-			</list>
-		</property>
 	</bean>
 
 	<bean id="txManager"

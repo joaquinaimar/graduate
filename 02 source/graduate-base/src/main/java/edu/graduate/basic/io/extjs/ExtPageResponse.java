@@ -1,8 +1,8 @@
-package edu.graduate.shoe.manage.basic.io.extjs;
+package edu.graduate.basic.io.extjs;
 
 import java.util.List;
 
-import edu.graduate.shoe.manage.basic.io.PageResponse;
+import edu.graduate.basic.io.PageResponse;
 
 public class ExtPageResponse<T> {
 

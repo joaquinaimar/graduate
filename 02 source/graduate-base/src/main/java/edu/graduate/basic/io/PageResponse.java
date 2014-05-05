@@ -1,4 +1,4 @@
-package edu.graduate.shoe.manage.basic.io;
+package edu.graduate.basic.io;
 
 import java.util.List;
 

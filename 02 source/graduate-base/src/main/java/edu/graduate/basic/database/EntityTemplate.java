@@ -1,4 +1,4 @@
-package edu.graduate.law.platform.basic.database;
+package edu.graduate.basic.database;
 
 import java.io.Serializable;
 

@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import edu.graduate.shoe.manage.basic.database.EntityTemplate;
+import edu.graduate.basic.database.EntityTemplate;
 
 @Entity
 @DynamicInsert

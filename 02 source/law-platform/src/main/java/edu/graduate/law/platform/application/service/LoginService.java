@@ -5,7 +5,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.graduate.law.platform.basic.database.BaseDao;
+import edu.graduate.basic.database.BaseDao;
 import edu.graduate.law.platform.domain.entity.User;
 
 @Service

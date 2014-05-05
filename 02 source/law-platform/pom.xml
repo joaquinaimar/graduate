@@ -19,29 +19,12 @@
 		<servlet-api.version>2.5</servlet-api.version>
 		<jsp-api.version>2.2</jsp-api.version>
 		<jstl.version>1.2</jstl.version>
-		<commons-io.version>1.3.2</commons-io.version>
-		<commons-lang.version>2.5</commons-lang.version>
-		<commons-dbcp.version>1.4</commons-dbcp.version>
-		<commons-fileupload.version>1.2.2</commons-fileupload.version>
-		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
-		<aspectj.version>1.5.4</aspectj.version>
-		<cglib.version>2.2.2</cglib.version>
-		<aopalliance.version>1.0</aopalliance.version>
-		<hibernate-core.version>4.1.9.Final</hibernate-core.version>
-		<hibernate-annotations.version>4.1.0.Final</hibernate-annotations.version>
-		<hibernate-commons-annotations.version>4.0.1.Final</hibernate-commons-annotations.version>
-		<hibernate-entitymanager.version>4.1.9.Final</hibernate-entitymanager.version>
-		<mysql-connector-java.version>5.1.9</mysql-connector-java.version>
-		<jackson.version>1.9.9</jackson.version>
-		<slf4j.version>1.6.1</slf4j.version>
-		<log4j.version>1.2.16</log4j.version>
-		<extjs.version>4.2.1.883</extjs.version>
 
 		<!-- build -->
 		<java.version>1.7</java.version>
-		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
-		<maven-deploy-plugin.version>2.8-SNAPSHOT</maven-deploy-plugin.version>
-		<maven-surefire-plugin.version>2.10</maven-surefire-plugin.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
+		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
 		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
 
 	</properties>
@@ -66,158 +49,10 @@
 			<version>${jstl.version}</version>
 		</dependency>
 
-		<!-- Commons -->
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${commons-lang.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>${commons-dbcp.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>${commons-fileupload.version}</version>
-		</dependency>
-
-		<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-asm</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-
-		<!-- aspectj -->
-		<dependency>
-			<groupId>aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-
-		<!-- cglib -->
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>${cglib.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>aopalliance</groupId>
-			<artifactId>aopalliance</artifactId>
-			<version>${aopalliance.version}</version>
-		</dependency>
-
-		<!-- hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate-core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate.common</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>${hibernate-commons-annotations.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate-entitymanager.version}</version>
-		</dependency>
-
-		<!-- mysql -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql-connector-java.version}</version>
-		</dependency>
-
-		<!-- Jackson JSON -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-
-		<!-- LOG -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-
-		<!-- webjars -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>extjs</artifactId>
-			<version>${extjs.version}</version>
+			<groupId>edu.graduate</groupId>
+			<artifactId>base</artifactId>
+			<version>spring.hibernate.extjs</version>
 		</dependency>
 
 	</dependencies>

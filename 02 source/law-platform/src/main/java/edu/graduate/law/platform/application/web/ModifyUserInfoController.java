@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.graduate.basic.io.extjs.ExtResponse;
 import edu.graduate.law.platform.application.service.ModifyUserInfoService;
-import edu.graduate.law.platform.basic.io.extjs.ExtResponse;
 import edu.graduate.law.platform.domain.entity.User;
 
 @Controller

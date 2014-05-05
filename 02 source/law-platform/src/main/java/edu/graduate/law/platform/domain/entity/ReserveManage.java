@@ -14,7 +14,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
-import edu.graduate.law.platform.basic.database.EntityTemplate;
+import edu.graduate.basic.database.EntityTemplate;
 
 @Entity
 @DynamicInsert

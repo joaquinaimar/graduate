@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.extjs.ExtPageRequest;
+import edu.graduate.basic.io.extjs.ExtPageResponse;
 import edu.graduate.law.platform.application.service.ReserveManageService;
-import edu.graduate.law.platform.basic.io.PageResponse;
-import edu.graduate.law.platform.basic.io.extjs.ExtPageRequest;
-import edu.graduate.law.platform.basic.io.extjs.ExtPageResponse;
 import edu.graduate.law.platform.domain.entity.ReserveManage;
 
 @Controller

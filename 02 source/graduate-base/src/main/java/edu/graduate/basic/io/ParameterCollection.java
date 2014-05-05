@@ -1,4 +1,4 @@
-package edu.graduate.law.platform.basic.io;
+package edu.graduate.basic.io;
 
 public class ParameterCollection {
 

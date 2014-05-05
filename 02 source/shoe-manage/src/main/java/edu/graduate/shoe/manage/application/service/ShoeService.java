@@ -6,9 +6,9 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.graduate.shoe.manage.basic.database.BaseDao;
-import edu.graduate.shoe.manage.basic.io.PageResponse;
-import edu.graduate.shoe.manage.basic.io.extjs.ExtPageRequest;
+import edu.graduate.basic.database.BaseDao;
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.extjs.ExtPageRequest;
 import edu.graduate.shoe.manage.domain.entity.Shoe;
 
 @Service

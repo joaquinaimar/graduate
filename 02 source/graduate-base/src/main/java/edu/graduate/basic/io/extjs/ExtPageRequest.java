@@ -1,6 +1,6 @@
-package edu.graduate.shoe.manage.basic.io.extjs;
+package edu.graduate.basic.io.extjs;
 
-import edu.graduate.shoe.manage.basic.io.PageRequest;
+import edu.graduate.basic.io.PageRequest;
 
 public class ExtPageRequest extends PageRequest {
 
