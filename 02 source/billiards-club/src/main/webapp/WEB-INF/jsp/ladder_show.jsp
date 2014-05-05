@@ -11,6 +11,7 @@
 			<td>教练姓名</td>
 			<td>家庭住址</td>
 			<td>陪练项目</td>
+			<td>教练状态</td>
 			<td>价格(小时)</td>
 		</tr>
 		<s:iterator value="ladderList" id="ladder" status="status">
@@ -21,8 +22,9 @@
 			<tr class="even">
 			</s:else>
 				<td><s:property value="#ladder.person.name"/></td>
-				<td><s:property value="#ladder.person.adderss"/></td>
+				<td><s:property value="#ladder.person.address"/></td>
 				<td><s:property value="#ladder.comment"/></td>
+				<td><s:property value="#ladder.ladderStatus.descr"/></td>
 				<td><s:property value="#ladder.ladderPrice"/></td>
 			</tr>
 		</s:iterator>

@@ -20,5 +20,9 @@
 			expression="org.springframework.stereotype.Component" />
 	</context:component-scan>
 
-	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<!-- bean id="daoTemplate" class="com.fun.service.base.DaoTemplate" /-->
+
 </beans>

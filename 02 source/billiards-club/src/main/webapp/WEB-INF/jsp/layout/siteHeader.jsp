@@ -13,8 +13,8 @@
 			<span><nobr>会员管理</nobr></span></a>
 		</td>
 		<td background="${contextPath}/common/img/retail.gif" width="76">
-			<a id="tabResetPassUsername" name="tabResetPassUsername" class="nav_link" href="/retailer/ResetPassUsername.action">
-			<span><nobr>器材管理</nobr></span></a>
+			<a id="tabReport" class="nav_link" href="${contextPath}/report/reportShow.action">
+			<span><nobr>业务报表</nobr></span></a>
 		</td>
 		<td background="${contextPath}/common/img/retail.gif" width="76">
 			<a id="tabLadder" class="nav_link" href="${contextPath}/ladder/ladderShow.action">

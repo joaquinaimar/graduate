@@ -65,5 +65,30 @@
 		<put-attribute name="left" value="/WEB-INF/jsp/left_ladder_manage.jsp" />
 		<put-attribute name="right" value="/WEB-INF/jsp/ladder_add.jsp" />
 	</definition>
+	
+	<definition name="ladderUpdate" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_ladder_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/ladder_update.jsp" />
+	</definition>
+	
+	<definition name="reportShow" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_report_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/report.jsp" />
+	</definition>
+
+	<definition name="warehouseAdd" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_place_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/warehouse_add.jsp" />
+	</definition>
+	
+	<definition name="wareAdd" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_place_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/ware_add.jsp" />
+	</definition>
+	
+	<definition name="wareUpdate" extends="siteLayout">
+		<put-attribute name="left" value="/WEB-INF/jsp/left_place_manage.jsp" />
+		<put-attribute name="right" value="/WEB-INF/jsp/ware_update.jsp" />
+	</definition>
 
 </tiles-definitions>

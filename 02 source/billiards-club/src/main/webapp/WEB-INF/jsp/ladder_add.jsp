@@ -25,6 +25,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>陪练项目</td>
+			<td>
+				<s:textfield name="ladder.comment" />
+			</td>
+		</tr>
+		<tr>
 			<td>陪练价格</td>
 			<td>
 				<s:textfield name="ladder.ladderPrice" />

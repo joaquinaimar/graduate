@@ -20,7 +20,7 @@ public class Ladder {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ladderId;
 	
-	@OneToOne(optional=false, cascade=CascadeType.REFRESH)
+	@OneToOne(optional=false, cascade=CascadeType.ALL)
 	@JoinColumn(name="person_id", referencedColumnName="person_id")
 	private Person person;
 	
@@ -56,6 +56,22 @@ public class Ladder {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public LadderStatus getLadderStatus() {
+		return ladderStatus;
+	}
+
+	public void setLadderStatus(LadderStatus ladderStatus) {
+		this.ladderStatus = ladderStatus;
 	}
 	
 }

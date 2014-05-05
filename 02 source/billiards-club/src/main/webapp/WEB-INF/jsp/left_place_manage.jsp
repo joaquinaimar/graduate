@@ -9,6 +9,9 @@
 		<p style="letter-spacing: 1px;"><s:a action="placeShow.action">场地管理</s:a></p>
 		<p style="letter-spacing: 1px;"><s:a action="placeAdd!view.action">场地添加</s:a></p>
 		<p style="letter-spacing: 1px;"><s:a action="placeUpdate!view.action">场地更新</s:a></p>
+		<p style="letter-spacing: 1px;"><s:a action="warehouseAdd!view.action">仓库添加</s:a></p>
+		<p style="letter-spacing: 1px;"><s:a action="wareAdd!view.action">商品添加</s:a></p>
+		<p style="letter-spacing: 1px;"><s:a action="wareUpdate!view.action">商品销售</s:a></p>
 	</div>
 </fieldset>
 </div>

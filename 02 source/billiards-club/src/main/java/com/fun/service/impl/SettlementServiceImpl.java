@@ -56,12 +56,13 @@ public class SettlementServiceImpl implements SettlementService {
 		Date currentDatetime = new Date();
 		long duration = currentDatetime.getTime() - startDatetime.getTime();
 		long quart = 1000 * 60 * 15;
-		long quarter = Math.round(duration / quart);
+		int quarter = Math.round(duration / quart);
 		double quartPrice = price.getUnitPrice() / 4;
 		double amount = quarter
 				* quartPrice
 				* RuntimePolicy.getMemberDiscount(member.getMemberType()
-						.getMemberLevel());
+						.getMemberLevel())
+				* RuntimePolicy.getTimeDiscount(quarter);
 		BigDecimal decimal = new BigDecimal(amount);
 		amount = decimal.setScale(2, RoundingMode.HALF_UP).doubleValue();
 		double perBalance = member.getBalance();
