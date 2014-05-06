@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2014-04-25 10:53:27
+Date: 2014-05-06 13:33:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,6 +52,8 @@ CREATE TABLE `customer` (
 -- Records of customer
 -- ----------------------------
 INSERT INTO `customer` VALUES ('1', '段浩', 'SB001', '38', '天津站后广场', '0');
+INSERT INTO `customer` VALUES ('2', '晶晶', 'SB002', '13', '天津站后广场', '1');
+INSERT INTO `customer` VALUES ('8a83a2cb45cf8db70145cf8e5d230000', '经', '111', '212', '大撒旦撒', '0');
 
 -- ----------------------------
 -- Table structure for sell
@@ -60,6 +62,7 @@ DROP TABLE IF EXISTS `sell`;
 CREATE TABLE `sell` (
   `id` varchar(36) NOT NULL,
   `customer` varchar(40) DEFAULT NULL,
+  `brand` varchar(30) DEFAULT NULL,
   `type` int(1) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
@@ -70,10 +73,14 @@ CREATE TABLE `sell` (
 -- ----------------------------
 -- Records of sell
 -- ----------------------------
-INSERT INTO `sell` VALUES ('4028d6814522a1dd014522a29cb20000', '段浩', '1', null, null, null);
-INSERT INTO `sell` VALUES ('8a83a2cb459665910145966c45130000', '段浩', '1', '212', '1212.00', null);
-INSERT INTO `sell` VALUES ('8a83a2cb45968aa50145968e0a330000', '段浩', '0', '100000', '2.00', '2014-04-25 10:52:13');
-INSERT INTO `sell` VALUES ('8a83a2cb45968fd801459691fc290000', '段浩', '1', '1', '2.00', '2014-04-25 09:48:40');
+INSERT INTO `sell` VALUES ('12', '段浩', '山地', '0', '333333', '2.00', null);
+INSERT INTO `sell` VALUES ('4028d6814522a1dd014522a29cb20000', '段浩', '雪地', '1', null, null, null);
+INSERT INTO `sell` VALUES ('8a83a2cb459665910145966c45130000', '段浩', '雪地', '1', '212', '1212.00', null);
+INSERT INTO `sell` VALUES ('8a83a2cb45968aa50145968e0a330000', '段浩', '雪地', '0', '100000', '2.00', '2014-04-25 10:52:13');
+INSERT INTO `sell` VALUES ('8a83a2cb45968fd801459691fc290000', '段浩', '山地', '1', '12222', '2.00', '2014-04-25 09:48:40');
+INSERT INTO `sell` VALUES ('8a83a2cb45cfeea90145cff8375e0000', '请选择', '雪地', '0', '111111', null, '2014-05-06 13:18:42');
+INSERT INTO `sell` VALUES ('8a83a2cb45cfeea90145d002817f0001', '段浩', '雪地', '0', '33333', '1.00', '2014-05-06 13:29:56');
+INSERT INTO `sell` VALUES ('8a83a2cb45cfeea90145d003d0240002', '晶晶', '雪地', '1', '3333', '1.00', '2014-05-06 13:31:22');
 
 -- ----------------------------
 -- Table structure for shoe
@@ -115,4 +122,4 @@ INSERT INTO `user` VALUES ('1', 'admin', '123');
 -- View structure for after_service_view
 -- ----------------------------
 DROP VIEW IF EXISTS `after_service_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `after_service_view` AS select `a`.`customer` AS `customer`,`a`.`type` AS `type`,`a`.`quantity` AS `quantity`,`a`.`price` AS `price`,`b`.`id` AS `id`,`a`.`time` AS `sell_time`,`a`.`id` AS `sell_id`,`b`.`back_quantity` AS `back_quantity`,`b`.`problem` AS `problem`,`b`.`back` AS `back`,`b`.`time` AS `back_time` from (`sell` `a` left join `after_service` `b` on((`a`.`id` = `b`.`sell_id`))) where (`a`.`type` = '1') ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `after_service_view` AS select `a`.`customer` AS `customer`,`a`.`type` AS `type`,`a`.`quantity` AS `quantity`,`a`.`price` AS `price`,`b`.`id` AS `id`,`a`.`time` AS `sell_time`,`a`.`id` AS `sell_id`,`a`.`brand` AS `brand`,`b`.`back_quantity` AS `back_quantity`,`b`.`problem` AS `problem`,`b`.`back` AS `back`,`b`.`time` AS `back_time` from (`sell` `a` left join `after_service` `b` on((`a`.`id` = `b`.`sell_id`))) where (`a`.`type` = '1') ;
