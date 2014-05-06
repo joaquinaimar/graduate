@@ -105,39 +105,32 @@ shoe.sell.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 	} ]
 });
 
-shoe.sell.GatherPanel = Ext.extend(Ext.form.FormPanel, {
+shoe.sell.GatherPanel = Ext.extend(Ext.grid.GridPanel, {
 	id : 'gatherPanel',
 	region : 'north',
 	frame : true,
 	layout : 'fit',
-	items : [ {
-		frame : true,
-		layout : {
-			type : 'table',
-			columns : 3
-		},
-		items : [ {
-			xtype : 'textfield',
-			labelWidth : 100,
-			fieldLabel : '进货量',
-			id : 'inQuantity',
-			name : 'inQuantity',
-			readOnly : true
-		}, {
-			xtype : 'textfield',
-			labelWidth : 100,
-			fieldLabel : '出货量',
-			id : 'outQuantity',
-			name : 'outQuantity',
-			readOnly : true
-		}, {
-			xtype : 'textfield',
-			labelWidth : 100,
-			fieldLabel : '库存量',
-			id : 'stockQuantity',
-			name : 'stockQuantity',
-			readOnly : true
-		} ]
+	loadMask : true,
+	store : brandGridStore,
+	columns : [ new Ext.grid.RowNumberer({
+		header : 'NO.',
+		width : 50
+	}), {
+		width : 100,
+		text : '品牌',
+		dataIndex : 'brand'
+	}, {
+		width : 100,
+		text : '进货量',
+		dataIndex : 'inQuantity'
+	}, {
+		width : 100,
+		text : '出货量',
+		dataIndex : 'outQuantity'
+	}, {
+		width : 100,
+		text : '库存量',
+		dataIndex : 'stockQuantity'
 	} ]
 });
 
@@ -161,6 +154,10 @@ shoe.sell.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		text : "客户",
 		width : 200,
 		dataIndex : 'customer'
+	}, {
+		text : "品牌",
+		width : 100,
+		dataIndex : 'brand'
 	}, {
 		text : "类型",
 		width : 180,
@@ -206,11 +203,7 @@ shoe.sell.ChildWindow = Ext.extend(Ext.Window, {
 	id : 'childWindow',
 	autoScroll : true,
 	width : 350,
-	height : 180,
-	minWidth : 350,
-	minHeight : 180,
-	maxWidth : 350,
-	maxHeight : 180,
+	height : 210,
 	maximizable : false,
 	modal : true,
 	items : [ {
@@ -237,6 +230,18 @@ shoe.sell.ChildWindow = Ext.extend(Ext.Window, {
 			store : customerStore,
 			valueField : 'name',
 			displayField : 'name'
+		}, {
+			xtype : 'combobox',
+			editable : false,
+			fieldLabel : '品牌',
+			id : 'childBrand',
+			name : 'brand',
+			emptyText : '请选择',
+			queryMode : 'local',
+			triggerAction : 'all',
+			store : brandStore,
+			valueField : 'brand',
+			displayField : 'brand'
 		}, {
 			xtype : 'combobox',
 			editable : false,

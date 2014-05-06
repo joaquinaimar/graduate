@@ -14,33 +14,51 @@ function searchSell() {
 	gridStore.load();
 }
 
-function gatherInFo() {
-	Ext.Ajax.request({
-		url : contextPath + '/controller/sell/gatherInFo.do',
-		method : 'POST',
-		success : function(response, options) {
-			if (response.responseText) {
-				var result = Ext.JSON.decode(response.responseText).data;
-				var form = Ext.getCmp("gatherPanel").getForm();
-				for ( var p in result)
-					form.findField(p).setValue(result[p]);
-			}
-		}
-	});
-}
-
 function saveSell() {
 	var form = Ext.getCmp("childForm").getForm();
-	form.submit({
-		url : contextPath + '/controller/sell/saveSell.do',
-		method : 'POST',
-		success : function(from, action) {
-			Ext.Msg.alert('提示', '保存成功！', function() {
-				gridStore.reload();
-				Ext.getCmp("childWindow").close();
-			});
-		}
-	});
+
+	if ("1" == form.findField("type").getValue()) {
+
+		Ext.Ajax.request({
+			url : contextPath + '/controller/sell/gatherInFo.do',
+			params : {
+				brand : form.findField("brand").getValue()
+			},
+			method : 'POST',
+			success : function(response, options) {
+				if (response.responseText) {
+					var result = Ext.JSON.decode(response.responseText).data;
+					if (result.stockQuantity < form.findField("quantity")
+							.getValue()) {
+						Ext.Msg.alert("错误", "超出库存！");
+					} else {
+						form.submit({
+							url : contextPath + '/controller/sell/saveSell.do',
+							method : 'POST',
+							success : function(from, action) {
+								Ext.Msg.alert('提示', '保存成功！', function() {
+									gridStore.reload();
+									Ext.getCmp("childWindow").close();
+								});
+							}
+						});
+					}
+				}
+			}
+		});
+
+	} else {
+		form.submit({
+			url : contextPath + '/controller/sell/saveSell.do',
+			method : 'POST',
+			success : function(from, action) {
+				Ext.Msg.alert('提示', '保存成功！', function() {
+					gridStore.reload();
+					Ext.getCmp("childWindow").close();
+				});
+			}
+		});
+	}
 }
 
 function deleteSell() {

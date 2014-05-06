@@ -51,10 +51,10 @@ public class SellController {
 
 	@RequestMapping(value = "/gatherInFo.do", method = RequestMethod.POST)
 	@ResponseBody
-	public ExtResponse<GatherSell> gatherInFo() {
+	public ExtResponse<GatherSell> gatherInFo(@RequestParam String brand) {
 		GatherSell gatherSell = new GatherSell();
-		gatherSell.setInQuantity(sellService.gatherInFo(0));
-		gatherSell.setOutQuantity(sellService.gatherInFo(1));
+		gatherSell.setInQuantity(sellService.gatherInFo(0, brand));
+		gatherSell.setOutQuantity(sellService.gatherInFo(1, brand));
 		return new ExtResponse<GatherSell>(true, gatherSell);
 	}
 
@@ -83,6 +83,13 @@ public class SellController {
 	public ExtResponse<List<Customer>> getCustomer() {
 		List<Customer> customerList = sellService.getCustomer();
 		return new ExtResponse<List<Customer>>(true, customerList);
+	}
+
+	@RequestMapping(value = "/getBrand.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ExtResponse<List<Sell>> getBrand() {
+		List<Sell> sellList = sellService.getBrand();
+		return new ExtResponse<List<Sell>>(true, sellList);
 	}
 
 	@RequestMapping(value = "/getCustomerCount.do", method = RequestMethod.POST)

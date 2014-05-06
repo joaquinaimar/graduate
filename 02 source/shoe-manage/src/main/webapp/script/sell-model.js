@@ -15,17 +15,56 @@ var gridStore = new Ext.data.Store({
 			root : 'result'
 		}
 	},
-	fields : [ 'id', 'customer', 'type', 'quantity', 'price', {
+	fields : [ 'id', 'customer', 'type', 'brand', 'quantity', 'price', {
 		name : 'time',
 		type : 'date',
 		dateFormat : 'time'
 	} ],
 	listeners : {
-		load : function(records, options, success) {
-			gatherInFo();
+		load : function(store, records, successful, operation, eOpts) {
+			brandGridStore.load();
 		}
 	}
 });
+
+var brandGridStore = new Ext.data.Store(
+		{
+			autoLoad : true,
+			proxy : {
+				type : 'ajax',
+				url : contextPath + '/controller/sell/getBrand.do',
+				reader : {
+					type : 'json',
+					root : 'data'
+				}
+			},
+			fields : [ 'brand' ],
+			listeners : {
+				load : function(store, records, successful, operation, eOpts) {
+					store
+							.each(function(rec) {
+								Ext.Ajax
+										.request({
+											url : contextPath
+													+ '/controller/sell/gatherInFo.do',
+											params : {
+												brand : rec.get("brand")
+											},
+											method : 'POST',
+											success : function(response,
+													options) {
+												if (response.responseText) {
+													var result = Ext.JSON
+															.decode(response.responseText).data;
+													for ( var p in result)
+														rec.set(p, result[p]);
+												}
+											}
+										});
+							});
+				}
+			}
+		});
 
 var customerStore = new Ext.data.Store({
 	autoLoad : true,
@@ -38,6 +77,19 @@ var customerStore = new Ext.data.Store({
 		}
 	},
 	fields : [ 'name' ]
+});
+
+var brandStore = new Ext.data.Store({
+	autoLoad : true,
+	proxy : {
+		type : 'ajax',
+		url : contextPath + '/controller/sell/getBrand.do',
+		reader : {
+			type : 'json',
+			root : 'data'
+		}
+	},
+	fields : [ 'brand' ]
 });
 
 var typeStore = new Ext.data.ArrayStore({

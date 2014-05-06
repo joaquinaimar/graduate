@@ -37,6 +37,9 @@ public class AfterServiceView extends EntityTemplate {
 	@Column(name = "price")
 	private Double price = null;
 
+	@Column(name = "brand")
+	private String brand = null;
+
 	@Column(name = "id")
 	private String id = null;
 
@@ -149,4 +152,11 @@ public class AfterServiceView extends EntityTemplate {
 		this.backTime = backTime;
 	}
 
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 }

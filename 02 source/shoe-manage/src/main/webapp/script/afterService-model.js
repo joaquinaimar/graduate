@@ -15,7 +15,7 @@ var gridStore = new Ext.data.Store({
 			root : 'result'
 		}
 	},
-	fields : [ 'customer', 'type', 'quantity', 'price', 'id', {
+	fields : [ 'customer', 'type', 'quantity', 'price', 'brand', 'id', {
 		name : 'sellTime',
 		type : 'date',
 		dateFormat : 'time'

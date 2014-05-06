@@ -105,6 +105,10 @@ shoe.afterService.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		width : 100,
 		dataIndex : 'price'
 	}, {
+		text : "品牌",
+		width : 100,
+		dataIndex : 'brand'
+	}, {
 		text : "销售时间",
 		width : 200,
 		xtype : 'datecolumn',

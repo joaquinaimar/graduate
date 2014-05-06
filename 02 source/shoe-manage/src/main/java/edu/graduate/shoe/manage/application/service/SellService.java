@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,10 +39,11 @@ public class SellService extends BaseDao {
 		return super.pageQuery(criteria, pageRequest);
 	}
 
-	public Long gatherInFo(int type) {
+	public Long gatherInFo(int type, String brand) {
 		Criteria criteria = super.createCriteria(Sell.class);
 		criteria.setProjection(Projections.sum("quantity"));
 		criteria.add(Restrictions.eq("type", type));
+		criteria.add(Restrictions.eq("brand", brand));
 		return (Long) criteria.uniqueResult();
 	}
 
@@ -61,6 +64,16 @@ public class SellService extends BaseDao {
 	@SuppressWarnings("unchecked")
 	public List<Customer> getCustomer() {
 		Criteria criteria = super.createCriteria(Customer.class);
+		return criteria.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Sell> getBrand() {
+		Criteria criteria = super.createCriteria(Sell.class);
+		ProjectionList projectionList = Projections.projectionList();
+		projectionList.add(Projections.property("brand").as("brand"));
+		criteria.setProjection(Projections.distinct(projectionList));
+		criteria.setResultTransformer(Transformers.aliasToBean(Sell.class));
 		return criteria.list();
 	}
 

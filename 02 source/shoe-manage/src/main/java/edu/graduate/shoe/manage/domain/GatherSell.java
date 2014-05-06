@@ -7,7 +7,7 @@ public class GatherSell {
 	private Long outQuantity = null;
 
 	public Long getInQuantity() {
-		return inQuantity;
+		return null == inQuantity ? 0 : inQuantity;
 	}
 
 	public void setInQuantity(Long inQuantity) {
@@ -15,7 +15,7 @@ public class GatherSell {
 	}
 
 	public Long getOutQuantity() {
-		return outQuantity;
+		return null == outQuantity ? 0 : outQuantity;
 	}
 
 	public void setOutQuantity(Long outQuantity) {
@@ -23,7 +23,7 @@ public class GatherSell {
 	}
 
 	public Long getStockQuantity() {
-		return inQuantity - outQuantity;
+		return getInQuantity() - getOutQuantity();
 	}
 
 }

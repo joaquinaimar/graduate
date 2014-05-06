@@ -39,6 +39,9 @@ public class Sell extends EntityTemplate {
 	@Column(name = "type")
 	private Integer type = null;
 
+	@Column(name = "brand")
+	private String brand = null;
+
 	@Column(name = "quantity")
 	private Integer quantity = null;
 
@@ -97,4 +100,11 @@ public class Sell extends EntityTemplate {
 		this.time = time;
 	}
 
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 }
