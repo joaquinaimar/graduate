@@ -53,6 +53,12 @@ shoe.main.MainPanel = Ext
 														}
 													},
 													{
+														text : '进货商管理',
+														onClick : function() {
+															changePage("/purchase");
+														}
+													},
+													{
 														text : '销售记录',
 														onClick : function() {
 															changePage("/sell");

@@ -64,4 +64,11 @@ public class SellService extends BaseDao {
 		return criteria.list();
 	}
 
+	public Long getCustomerCount(String customer) {
+		Criteria criteria = super.createCriteria(Sell.class);
+		criteria.setProjection(Projections.count("id"));
+		criteria.add(Restrictions.eq("customer", customer));
+		return (Long) criteria.uniqueResult();
+	}
+
 }

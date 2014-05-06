@@ -3,7 +3,7 @@ var gridStore = new Ext.data.Store(
 			pageSize : 50,
 			autoLoad : {
 				params : {
-					type : "1",
+					type : "0",
 					start : 0,
 					limit : 50
 				}

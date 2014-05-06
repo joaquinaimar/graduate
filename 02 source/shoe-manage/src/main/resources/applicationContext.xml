@@ -31,6 +31,7 @@
 	<mvc:view-controller path="/" view-name="/login" />
 	<mvc:view-controller path="/main" />
 	<mvc:view-controller path="/customer" />
+	<mvc:view-controller path="/purchase" />
 	<mvc:view-controller path="/sell" />
 	<mvc:view-controller path="/shoe" />
 	<mvc:view-controller path="/afterService" />

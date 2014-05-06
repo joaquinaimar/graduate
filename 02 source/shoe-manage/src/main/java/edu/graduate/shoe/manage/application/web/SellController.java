@@ -85,4 +85,11 @@ public class SellController {
 		return new ExtResponse<List<Customer>>(true, customerList);
 	}
 
+	@RequestMapping(value = "/getCustomerCount.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ExtResponse<Long> getCustomerCount(@RequestParam String customer) {
+		return new ExtResponse<Long>(true,
+				sellService.getCustomerCount(customer));
+	}
+
 }

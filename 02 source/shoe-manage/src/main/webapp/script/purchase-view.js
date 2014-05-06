@@ -14,7 +14,7 @@ Ext.onReady(function() {
 shoe.customer.MainPanel = Ext.extend(Ext.Panel, {
 	id : 'mainPanel',
 	layout : 'border',
-	title : '客户管理',
+	title : '进货商管理',
 	constructor : function(config) {
 		var searchPanel = new shoe.customer.SearchPanel();
 		var gridPanel = new shoe.customer.GridPanel();
@@ -42,7 +42,7 @@ shoe.customer.SearchPanel = Ext.extend(Ext.form.FormPanel, {
 		items : [ {
 			xtype : 'textfield',
 			labelWidth : 50,
-			fieldLabel : '客户名',
+			fieldLabel : '进货商名',
 			id : 'name',
 			name : 'name'
 		} ]
@@ -175,7 +175,7 @@ shoe.customer.ChildWindow = Ext.extend(Ext.Window, {
 			xtype : 'hiddenfield',
 			id : 'childType',
 			name : 'type',
-			value : '1'
+			value : '0'
 		} ]
 	} ],
 	buttons : [ {
