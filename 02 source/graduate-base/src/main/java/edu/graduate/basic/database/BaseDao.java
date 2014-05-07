@@ -120,7 +120,7 @@ public class BaseDao {
 		count.setFirstResult(0);
 		count.setMaxResults(0);
 		count.setProjection(Projections.rowCount());
-		return (long) count.uniqueResult();
+		return (Long) count.uniqueResult();
 	}
 
 	public PageResponse pageQuery(Query query, PageRequest request) {
@@ -141,7 +141,7 @@ public class BaseDao {
 				+ queryString.substring(fromIndex);
 		Query countQuery = createQuery(countString);
 		countQuery.setProperties(obj);
-		return (long) countQuery.uniqueResult();
+		return (Long) countQuery.uniqueResult();
 	}
 
 	public PageResponse pageQuery(Query query, Map<String, Object> bean,
@@ -159,7 +159,7 @@ public class BaseDao {
 				+ queryString.substring(fromIndex);
 		Query countQuery = createQuery(countString);
 		countQuery.setProperties(bean);
-		return (long) countQuery.uniqueResult();
+		return (Long) countQuery.uniqueResult();
 	}
 
 	public String createInStr(String propertie, ParameterCollection collection) {
