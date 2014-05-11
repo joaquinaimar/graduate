@@ -8,13 +8,16 @@ import edu.graduate.law.platform.domain.entity.User;
 
 @Service
 @Transactional
-public class ModifyUserInfoService extends BaseDao {
+public class UserInfoService extends BaseDao {
 
 	public User getUser(String id) {
 		return get(User.class, id);
 	}
 
 	public void saveUser(User user) {
-		update(user);
+		if (null == user.getId() || "".equals(user.getId()))
+			super.save(user);
+		else
+			super.update(user);
 	}
 }

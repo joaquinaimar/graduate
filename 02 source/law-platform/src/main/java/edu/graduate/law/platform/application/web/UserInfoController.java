@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.graduate.basic.io.extjs.ExtResponse;
-import edu.graduate.law.platform.application.service.ModifyUserInfoService;
+import edu.graduate.law.platform.application.service.UserInfoService;
 import edu.graduate.law.platform.domain.entity.User;
 
 @Controller
-@RequestMapping("controller/modifyUserInfo")
-public class ModifyUserInfoController {
+@RequestMapping("controller/userInfo")
+public class UserInfoController {
 
 	@Autowired
-	private ModifyUserInfoService modifyUserInfoService = null;
+	private UserInfoService userInfoService = null;
 
 	@RequestMapping(value = "/getUser.do", method = RequestMethod.GET)
 	@ResponseBody
 	public ExtResponse<User> getUser(HttpSession session) {
-		User user = modifyUserInfoService.getUser(session.getAttribute(
+		User user = userInfoService.getUser(session.getAttribute(
 				"loginId").toString());
 		return new ExtResponse<User>(true, user);
 	}
@@ -31,7 +31,7 @@ public class ModifyUserInfoController {
 	@RequestMapping(value = "/saveUser.do", method = RequestMethod.POST)
 	@ResponseBody
 	public ExtResponse<Boolean> saveUser(@ModelAttribute User user) {
-		modifyUserInfoService.saveUser(user);
+		userInfoService.saveUser(user);
 		return new ExtResponse<Boolean>(true, true);
 	}
 

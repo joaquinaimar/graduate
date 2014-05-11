@@ -9,7 +9,7 @@ Ext.onReady(function() {
 		items : mainPanel
 	});
 
-	changePage("/lawyerInfo");
+	changePage("/officeProfile");
 });
 
 law.main.MainPanel = Ext.extend(Ext.Panel, {
@@ -37,6 +37,11 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 				width : '100%'
 			},
 			items : [{
+				text : '事务所简介',
+				onClick : function() {
+					changePage("/officeProfile");
+				}
+			}, {
 				text : '律师资料',
 				onClick : function() {
 					changePage("/lawyerInfo");

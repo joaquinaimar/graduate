@@ -90,6 +90,7 @@
 
 	<mvc:view-controller path="/" view-name="/login" />
 	<mvc:view-controller path="/main" />
+	<mvc:view-controller path="/officeProfile" />
 	<mvc:view-controller path="/lawyerInfo" />
 	<mvc:view-controller path="/reserveManage" />
 	<mvc:view-controller path="/lawFile" />

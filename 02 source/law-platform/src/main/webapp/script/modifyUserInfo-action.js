@@ -1,6 +1,6 @@
 function getUseInfo() {
 	Ext.Ajax.request({
-		url : contextPath + '/controller/modifyUserInfo/getUser.do',
+		url : contextPath + '/controller/userInfo/getUser.do',
 		method : 'GET',
 		success : function(response, options) {
 			if (response.responseText) {
@@ -16,7 +16,7 @@ function getUseInfo() {
 function saveUser() {
 	var form = Ext.getCmp("userForm").getForm();
 	form.submit({
-		url : contextPath + '/controller/modifyUserInfo/saveUser.do',
+		url : contextPath + '/controller/userInfo/saveUser.do',
 		method : 'POST',
 		success : function(from, action) {
 			Ext.Msg.alert('提示', '保存成功！', function() {
