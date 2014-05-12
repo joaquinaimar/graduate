@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2014-04-20 21:45:44
+Date: 2014-05-12 22:05:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -71,6 +71,39 @@ CREATE TABLE `reserve` (
 INSERT INTO `reserve` VALUES ('4028d681457ef84101457ef956ff0000', '1', '1', '和双创打官司', '2014-04-20 19:50:41');
 
 -- ----------------------------
+-- Table structure for service_item
+-- ----------------------------
+DROP TABLE IF EXISTS `service_item`;
+CREATE TABLE `service_item` (
+  `id` varchar(36) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `charge_standard` varchar(100) DEFAULT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of service_item
+-- ----------------------------
+INSERT INTO `service_item` VALUES ('1', '经济案', '10%', '纠纷');
+
+-- ----------------------------
+-- Table structure for suggestion
+-- ----------------------------
+DROP TABLE IF EXISTS `suggestion`;
+CREATE TABLE `suggestion` (
+  `id` varchar(36) NOT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of suggestion
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -87,6 +120,7 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', 'admin', '123', '33333', 'fsdfdfds');
+INSERT INTO `user` VALUES ('4028fe8145ea4fab0145ea50657d0000', 'a1', '123', '123', '321');
 
 -- ----------------------------
 -- View structure for reserve_manage

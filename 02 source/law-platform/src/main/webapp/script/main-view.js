@@ -42,6 +42,11 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 					changePage("/officeProfile");
 				}
 			}, {
+				text : '服务标准',
+				onClick : function() {
+					changePage("/serviceItem");
+				}
+			}, {
 				text : '律师资料',
 				onClick : function() {
 					changePage("/lawyerInfo");
@@ -62,6 +67,11 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 					changePage("/modifyUserInfo");
 				}
 			}]
+		}, {
+			xtype : 'button',
+			region : 'south',
+			height : 30,
+			text : '意见反馈箱'
 		}]
 	}, {
 		id : 'mainMain',
@@ -77,5 +87,4 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 			}
 		}]
 	}]
-
 });
