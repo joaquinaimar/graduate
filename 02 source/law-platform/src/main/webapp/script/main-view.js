@@ -66,12 +66,21 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 				onClick : function() {
 					changePage("/modifyUserInfo");
 				}
+			}, {
+				text : '用户管理',
+				onClick : function() {
+					changePage("/userManage");
+				}
 			}]
 		}, {
 			xtype : 'button',
 			region : 'south',
 			height : 30,
-			text : '意见反馈箱'
+			text : '意见反馈箱',
+			onClick : function() {
+				var win = new law.main.ChildWindow();
+				win.show();
+			}
 		}]
 	}, {
 		id : 'mainMain',
@@ -86,5 +95,41 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 				frameBorder : 0
 			}
 		}]
+	}]
+});
+
+law.main.ChildWindow = Ext.extend(Ext.Window, {
+	id : 'childWindow',
+	autoScroll : true,
+	width : 500,
+	height : 300,
+	maximizable : false,
+	modal : true,
+	items : [{
+		id : 'childForm',
+		frame : true,
+		xtype : 'form',
+		defaults : {
+			labelWidth : 70,
+			width : 400
+		},
+		items : [{
+			fieldLabel : '意见',
+			xtype : 'textarea',
+			id : 'childContent',
+			height : 200,
+			name : 'content'
+		}]
+	}],
+	buttons : [{
+		text : '提交',
+		handler : function() {
+			saveSuggestion();
+		}
+	}, {
+		text : '取消',
+		handler : function() {
+			Ext.getCmp("childWindow").close();
+		}
 	}]
 });

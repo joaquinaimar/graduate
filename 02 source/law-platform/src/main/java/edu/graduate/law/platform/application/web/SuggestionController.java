@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,8 @@ import edu.graduate.basic.io.extjs.ExtResponse;
 import edu.graduate.law.platform.application.service.SuggestionService;
 import edu.graduate.law.platform.domain.entity.Suggestion;
 
+@Controller
+@RequestMapping("controller/suggestion")
 public class SuggestionController {
 
 	@Autowired

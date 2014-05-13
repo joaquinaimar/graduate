@@ -10,3 +10,16 @@ function changePage(url, menu) {
 		menuPanel.doLayout();
 	}
 }
+
+function saveSuggestion() {
+	var form = Ext.getCmp("childForm").getForm();
+	form.submit({
+		url : contextPath + '/controller/suggestion/saveSuggestion.do',
+		method : 'POST',
+		success : function(from, action) {
+			Ext.Msg.alert('提示', '提交成功！', function() {
+				Ext.getCmp("childWindow").close();
+			});
+		}
+	});
+}
