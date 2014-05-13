@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2014-05-12 22:05:24
+Date: 2014-05-13 14:04:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,6 +51,24 @@ CREATE TABLE `lawyer_detail` (
 -- ----------------------------
 INSERT INTO `lawyer_detail` VALUES ('1', '1', '1000万', '失败');
 INSERT INTO `lawyer_detail` VALUES ('2', '1', '110万', '成功');
+
+-- ----------------------------
+-- Table structure for news
+-- ----------------------------
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE `news` (
+  `id` varchar(36) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of news
+-- ----------------------------
+INSERT INTO `news` VALUES ('1', 'dads', 'dasdasd', '2014-05-13 13:47:07');
+INSERT INTO `news` VALUES ('8a83a2cb45f427680145f427dd990000', 'fsdfd', 'bhhfghfgh', '2014-05-13 13:57:04');
 
 -- ----------------------------
 -- Table structure for reserve
@@ -102,6 +120,8 @@ CREATE TABLE `suggestion` (
 -- ----------------------------
 -- Records of suggestion
 -- ----------------------------
+INSERT INTO `suggestion` VALUES ('8a83a2cb45f34b6f0145f34fb1050000', 'admin', 'dasdasdsad', '2014-05-13 10:00:57');
+INSERT INTO `suggestion` VALUES ('8a83a2cb45f396db0145f39899b40000', 'admin', '21212', '2014-05-13 11:20:35');
 
 -- ----------------------------
 -- Table structure for user
