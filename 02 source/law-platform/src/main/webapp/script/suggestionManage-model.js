@@ -8,14 +8,14 @@ var gridStore = new Ext.data.Store({
 	},
 	proxy : {
 		type : 'ajax',
-		url : contextPath + '/controller/news/searchNews.do',
+		url : contextPath + '/controller/suggestion/searchSuggestion.do',
 		reader : {
 			type : 'json',
 			totalProperty : "totalCount",
 			root : 'result'
 		}
 	},
-	fields : [ 'id', 'title', 'content', {
+	fields : [ 'id', 'username', 'content', {
 		name : 'time',
 		type : 'date',
 		dateFormat : 'time'

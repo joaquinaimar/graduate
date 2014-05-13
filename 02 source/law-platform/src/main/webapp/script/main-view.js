@@ -71,6 +71,16 @@ law.main.MainPanel = Ext.extend(Ext.Panel, {
 				onClick : function() {
 					changePage("/userManage");
 				}
+			}, {
+				text : '意见箱管理',
+				onClick : function() {
+					changePage("/suggestionManage");
+				}
+			}, {
+				text : '新闻管理',
+				onClick : function() {
+					changePage("/newsManage");
+				}
 			}]
 		}, {
 			xtype : 'button',

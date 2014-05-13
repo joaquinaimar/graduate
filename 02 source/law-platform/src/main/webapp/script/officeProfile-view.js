@@ -18,9 +18,10 @@ law.officeProfile.MainPanel = Ext.extend(Ext.Panel, {
 	layout : 'border',
 	constructor : function(config) {
 		var profilePanel = new law.officeProfile.ProfilePanel();
-		var certificate = new law.officeProfile.CertificatePanel();
+		var certificatePanel = new law.officeProfile.CertificatePanel();
+		var newsPanel = new law.officeProfile.NewsPanel();
 		var group = {
-			items : [ profilePanel, certificate ]
+			items : [ profilePanel, certificatePanel, newsPanel ]
 		};
 
 		law.officeProfile.MainPanel.superclass.constructor.call(this, group);
@@ -53,5 +54,38 @@ law.officeProfile.CertificatePanel = Ext.extend(Ext.Panel, {
 		frame : true,
 		html : '<center><img height="200px" width="300px" src="' + contextPath
 				+ '/image/certificate.jpg"></center>'
+	} ]
+});
+
+law.officeProfile.NewsPanel = Ext.extend(Ext.grid.GridPanel, {
+	id : 'newsPanel',
+	title : '新闻',
+	region : 'center',
+	frame : true,
+	layout : 'fit',
+	loadMask : true,
+	store : gridStore,
+	bbar : {
+		xtype : 'pagingtoolbar',
+		displayInfo : true,
+		store : gridStore
+	},
+	columns : [ new Ext.grid.RowNumberer({
+		header : 'NO.',
+		width : 50
+	}), {
+		text : "标题",
+		width : 100,
+		dataIndex : 'title'
+	}, {
+		text : "内容",
+		width : 400,
+		dataIndex : 'content'
+	}, {
+		text : "发布时间",
+		width : 200,
+		xtype : 'datecolumn',
+		format : 'Y-m-d H:i:s',
+		dataIndex : 'time'
 	} ]
 });

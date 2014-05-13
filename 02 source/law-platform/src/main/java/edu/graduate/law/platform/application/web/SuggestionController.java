@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.graduate.basic.io.PageResponse;
+import edu.graduate.basic.io.extjs.ExtPageRequest;
+import edu.graduate.basic.io.extjs.ExtPageResponse;
 import edu.graduate.basic.io.extjs.ExtResponse;
 import edu.graduate.law.platform.application.service.SuggestionService;
 import edu.graduate.law.platform.domain.entity.Suggestion;
@@ -31,4 +34,14 @@ public class SuggestionController {
 		suggestionService.saveSuggestion(suggestion);
 		return new ExtResponse<Boolean>(true, true);
 	}
+
+	@RequestMapping(value = "/searchSuggestion.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ExtPageResponse<Suggestion> searchSuggestion(Suggestion suggestion,
+			ExtPageRequest pageRequest) {
+		PageResponse<Suggestion> page = suggestionService.searchSuggestion(
+				suggestion, pageRequest);
+		return new ExtPageResponse<Suggestion>(true, page);
+	}
+
 }

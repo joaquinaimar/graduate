@@ -97,6 +97,8 @@
 	<mvc:view-controller path="/lawFile" />
 	<mvc:view-controller path="/modifyUserInfo" />
 	<mvc:view-controller path="/userManage" />
+	<mvc:view-controller path="/suggestionManage" />
+	<mvc:view-controller path="/newsManage" />
 
 	<context:property-placeholder location="classpath:jdbc.properties" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
